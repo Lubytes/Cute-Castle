@@ -3,13 +3,15 @@ Dalhousie University CSCI 4176 final project.
 
 A 2D style puzzle game.
 
-## Device Features Used
+Device Features Used
+-----
 
 * Accelerometer
 * Capability for Networking
 * Vibrating Motor
 
-## Minimum Functionality
+Minimum Functionality
+-----
 
 * A single playable level
 * Collectable items that increase score
@@ -19,7 +21,8 @@ A 2D style puzzle game.
 * Accelerometer-controlled game Features
 * Vibrating Motor Integration
 
-## Expected Functionality
+Expected Functionality
+-----
 
 * Collectable items that modify gameplay (powerups)
 * Multiple levels
@@ -28,7 +31,8 @@ A 2D style puzzle game.
 * User profiles
 * Global leaderboards
 
-## Bonus Functionality
+Bonus Functionality
+-----
 
 * Procedurally generated levels
 * Built-in communication mechanism
