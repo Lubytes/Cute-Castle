@@ -5,6 +5,7 @@ using UnityEngine;
 public class UserInput : MonoBehaviour {
 
     private PlayerController player;
+    public int moveDir;
 
 	// Use this for initialization
 	void Start () {
@@ -23,11 +24,19 @@ public class UserInput : MonoBehaviour {
                 if (hit.collider.name.Equals("LeftTouch"))
                 {
                     GoLeft();
+                    if (Input.touchCount > 1)
+                    {
+                        player.PlayerJump();
+                    }
                 }
 
                 if (hit.collider.name.Equals("RightTouch"))
                 {
                     GoRight();
+                    if (Input.touchCount > 1)
+                    {
+                        player.PlayerJump();
+                    }
                 }
             }
         }
@@ -36,6 +45,7 @@ public class UserInput : MonoBehaviour {
         {
             player.PlayerJump();
         }
+       
     }
 
     // Triggers that the user wants the player to go left
