@@ -292,40 +292,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114818581861064258, guid: df70d68095e26974fa53b6cda09b01f1,
-        type: 2}
-      propertyPath: jumpPower
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114818581861064258, guid: df70d68095e26974fa53b6cda09b01f1,
-        type: 2}
-      propertyPath: grounded
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 50621250558292254, guid: df70d68095e26974fa53b6cda09b01f1,
-        type: 2}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: df70d68095e26974fa53b6cda09b01f1, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1330767610 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1862428300226788, guid: df70d68095e26974fa53b6cda09b01f1,
-    type: 2}
-  m_PrefabInternal: {fileID: 756378111}
---- !u!114 &1330767611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1330767610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 263fca0b8644761439ed5aad00e67647, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1446893423
 GameObject:
   m_ObjectHideFlags: 0
@@ -636,7 +605,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a3ddf6d258851648abfa560fc3e7419, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAlive: 1
 --- !u!50 &2058265780
 Rigidbody2D:
   serializedVersion: 4
