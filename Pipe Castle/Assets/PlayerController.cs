@@ -9,6 +9,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
+    private bool grounded;
+
     public float moveSpeed;
     public float jumpPower = 10;
 
@@ -27,6 +29,15 @@ public class PlayerController : MonoBehaviour {
             PlayerMove(input);
         }
 
+
+        // Detecting if the player is midair
+        if(gameObject.GetComponent<Rigidbody2D>().velocity.y == 0)
+        {
+            grounded = true;
+        } else
+        {
+            grounded = false;
+        }
     }
 
     public void PlayerMove(Vector2 input)
@@ -37,12 +48,31 @@ public class PlayerController : MonoBehaviour {
 
         if(input.y > 0)
         {
-            //PlayerJump();
+            PlayerJump();
         }
     }
 
     public void PlayerJump()
     {
-        gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * jumpPower);
+        //gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * jumpPower);
+        if (grounded)
+        {
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(gameObject.GetComponent<Rigidbody2D>().velocity.x, jumpPower, 0), ForceMode2D.Impulse);
+        }
+    }
+
+    // Damage Logic
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Monster")
+        {
+            Hurt();
+        }
+    }
+
+    // Triggers when the player is injured
+    public void Hurt()
+    {
+        Debug.Log("Hurt Player!");
     }
 }
