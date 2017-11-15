@@ -47,11 +47,7 @@ public class ItemBox : MonoBehaviour {
         spawnedPowerUp.GetComponent<CircleCollider2D>().enabled = false;
 
 
-        int dir = 1;
-        if(Random.Range(0,2) == 1)
-        {
-            dir = dir * -1;
-        }
+        int dir = Random.Range(-1, 2);
         spawnedPowerUp.GetComponent<Rigidbody2D>().AddForce(new Vector2(100f * dir, 200f));
     }
 

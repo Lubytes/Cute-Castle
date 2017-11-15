@@ -45,6 +45,8 @@ public class PlayerController : MonoBehaviour {
 
     public void PlayerMove(Vector2 input)
     {
+        velocity.y = 0;
+
         float targetVelocityX = input.x * moveSpeed;
         velocity.x = targetVelocityX;
         transform.Translate(velocity * Time.deltaTime);
@@ -68,6 +70,7 @@ public class PlayerController : MonoBehaviour {
     {
         if (other.gameObject.tag == "Monster")
         {
+            Recoil(other);
             Hurt();
         } else if (other.gameObject.tag == "Power-Up")
         {
@@ -79,8 +82,8 @@ public class PlayerController : MonoBehaviour {
     // Triggers when the player is injured
     public void Hurt()
     {
-        
-        if(isGrown)
+        //Recoil();
+        if (isGrown)
         {
             Shrink();
         } else
@@ -102,8 +105,6 @@ public class PlayerController : MonoBehaviour {
         {
             Grow();
         }
-
-
 
         // Destroys the powerup in the end
         Destroy(powerUp);
@@ -135,5 +136,30 @@ public class PlayerController : MonoBehaviour {
         {
             gameObject.transform.localScale= new Vector3(1f, 0.6f, 0f);
         }
+    }
+
+    // Makes the player recoil
+    void Recoil(Collider2D other)
+    {
+        int dirX, dirY;
+
+        if(gameObject.transform.position.x - other.transform.position.x < 0)
+        {
+            dirX = -1;
+        } else
+        {
+            dirX = 1;
+        }
+
+        if (gameObject.transform.position.y - other.transform.position.y < 0)
+        {
+            dirY = -1;
+        }
+        else
+        {
+            dirY = 1;
+        }
+
+        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(2.5f * dirX, 2.5f * dirY);
     }
 }
