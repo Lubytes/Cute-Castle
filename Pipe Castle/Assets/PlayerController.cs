@@ -17,10 +17,11 @@ public class PlayerController : MonoBehaviour {
     public Vector3 velocity;
 
     public bool isGrown;
+    public HeartsGUI hearts;
+    public CoinCount coinCount;
 
     // Use this for initialization
     void Start () {
-        UpdateSize();
 
     }
 	
@@ -81,10 +82,8 @@ public class PlayerController : MonoBehaviour {
     // Triggers when the player is injured
     public void Hurt()
     {
-        if (isGrown)
-        {
-            Shrink();
-        } else
+        hearts.DecreaseHeart();
+        if(hearts.numHearts == 0)
         {
             Death();
         }
@@ -101,39 +100,14 @@ public class PlayerController : MonoBehaviour {
     {
         if(powerUp.name == "Health-Up" || powerUp.name == "Health-Up(Clone)")
         {
-            Grow();
+            hearts.IncreaseHeart();
+        } else if(powerUp.name == "Coin" || powerUp.name == "Coin(Clone)")
+        {
+            coinCount.IncrementCoin();
         }
 
         // Destroys the powerup in the end
         Destroy(powerUp);
-    }
-
-    // Makes the character grow/shrink
-    private void Grow()
-    {
-        if (!isGrown)
-        {
-            isGrown = true;
-            UpdateSize();
-        }
-    }
-    private void Shrink()
-    {
-        if(isGrown)
-        {
-            isGrown = false;
-            UpdateSize();
-        }
-    }
-    private void UpdateSize()
-    {
-        if(isGrown)
-        {
-            gameObject.transform.localScale = new Vector3(1f, 1f, 0f);
-        } else
-        {
-            gameObject.transform.localScale= new Vector3(1f, 0.6f, 0f);
-        }
     }
 
     // Makes the player recoil

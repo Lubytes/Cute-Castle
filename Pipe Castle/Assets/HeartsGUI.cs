@@ -23,13 +23,44 @@ public class HeartsGUI : MonoBehaviour {
     void UpdateHearts()
     {
 
-        hearts[0].GetComponent<SpriteRenderer>().sprite = heartEmpty;
-        hearts[1].GetComponent<SpriteRenderer>().sprite = heartEmpty;
-        hearts[2].GetComponent<SpriteRenderer>().sprite = heartEmpty;
-
-        for (int i = numHearts- 1; i >= 0; i--)
+        if(numHearts == 0)
         {
-            hearts[i].GetComponent<SpriteRenderer>().sprite = heartFull;
+            hearts[0].GetComponent<SpriteRenderer>().sprite = heartEmpty;
+            hearts[1].GetComponent<SpriteRenderer>().sprite = heartEmpty;
+            hearts[2].GetComponent<SpriteRenderer>().sprite = heartEmpty;
+        } else if(numHearts == 1)
+        {
+            hearts[0].GetComponent<SpriteRenderer>().sprite = heartFull;
+            hearts[1].GetComponent<SpriteRenderer>().sprite = heartEmpty;
+            hearts[2].GetComponent<SpriteRenderer>().sprite = heartEmpty;
+        } else if(numHearts == 2)
+        {
+            hearts[0].GetComponent<SpriteRenderer>().sprite = heartFull;
+            hearts[1].GetComponent<SpriteRenderer>().sprite = heartFull;
+            hearts[2].GetComponent<SpriteRenderer>().sprite = heartEmpty;
+        } else
+        {
+            hearts[0].GetComponent<SpriteRenderer>().sprite = heartFull;
+            hearts[1].GetComponent<SpriteRenderer>().sprite = heartFull;
+            hearts[2].GetComponent<SpriteRenderer>().sprite = heartFull;
+        }
+    }
+
+    public void IncreaseHeart()
+    {
+        if(numHearts <= 3)
+        {
+            numHearts++;
+            UpdateHearts();
+        }
+    }
+
+    public void DecreaseHeart()
+    {
+        if(numHearts > 0)
+        {
+            numHearts--;
+            UpdateHearts();
         }
     }
 }

@@ -12,17 +12,17 @@ public class CoinCount : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		IncrementCoin ();
 		UpdateCoins ();
 
-}
+    }
 	void UpdateCoins(){
-		
+
+        int numCoinsRecorded = numCoins;
 		var digits = new List<int>();
-		while (numCoins > 0)
+		while (numCoinsRecorded > 0)
 		{
-			digits.Add(numCoins % 10);
-			numCoins /= 10;
+			digits.Add(numCoinsRecorded % 10);
+            numCoinsRecorded /= 10;
 		}
 
 		digits.Reverse();
@@ -33,11 +33,11 @@ public class CoinCount : MonoBehaviour {
 			gameObjects [i].GetComponent<SpriteRenderer> ().sprite = coinSprite [digits[i]];
 		}	
 
-}
+    }
 	public void IncrementCoin(){
 		numCoins++;
 		UpdateCoins ();
 		
-}
+    }
 
 }
