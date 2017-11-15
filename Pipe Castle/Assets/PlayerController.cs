@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour {
     // Handles Powerups
     private void PowerUp(GameObject powerUp)
     {
-        if(powerUp.name == "Health-Up")
+        if(powerUp.name == "Health-Up" || powerUp.name == "Health-Up(Clone)")
         {
             Grow();
         }

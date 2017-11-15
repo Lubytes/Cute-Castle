@@ -229,6 +229,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\CameraAI.cs" />
+    <Compile Include="Assets\ItemBox.cs" />
     <Compile Include="Assets\MonsterDamageLogic.cs" />
     <Compile Include="Assets\PlayerController.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\CircleObject.cs" />
