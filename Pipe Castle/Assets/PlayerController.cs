@@ -16,13 +16,16 @@ public class PlayerController : MonoBehaviour {
 
     public Vector3 velocity;
 
+    public bool isGrown;
+
     // Use this for initialization
     void Start () {
+        UpdateSize();
 
-	}
+    }
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         if (Input.GetAxisRaw("Horizontal") != 0)
         {
             Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -54,25 +57,83 @@ public class PlayerController : MonoBehaviour {
 
     public void PlayerJump()
     {
-        //gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * jumpPower);
         if (grounded)
         {
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(gameObject.GetComponent<Rigidbody2D>().velocity.x, jumpPower, 0), ForceMode2D.Impulse);
         }
     }
 
-    // Damage Logic
+    // Collision logic
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Monster")
         {
             Hurt();
+        } else if (other.gameObject.tag == "Power-Up")
+        {
+            PowerUp(other.gameObject);
         }
+
     }
 
     // Triggers when the player is injured
     public void Hurt()
     {
-        Debug.Log("Hurt Player!");
+        
+        if(isGrown)
+        {
+            Shrink();
+        } else
+        {
+            Death();
+        }
+    }
+
+    // Triggers on death
+    private void Death()
+    {
+        Debug.Log("You Dead!");
+    }
+
+    // Handles Powerups
+    private void PowerUp(GameObject powerUp)
+    {
+        if(powerUp.name == "Health-Up")
+        {
+            Grow();
+        }
+
+
+
+        // Destroys the powerup in the end
+        Destroy(powerUp);
+    }
+
+    // Makes the character grow/shrink
+    private void Grow()
+    {
+        if (!isGrown)
+        {
+            isGrown = true;
+            UpdateSize();
+        }
+    }
+    private void Shrink()
+    {
+        if(isGrown)
+        {
+            isGrown = false;
+            UpdateSize();
+        }
+    }
+    private void UpdateSize()
+    {
+        if(isGrown)
+        {
+            gameObject.transform.localScale = new Vector3(1f, 1f, 0f);
+        } else
+        {
+            gameObject.transform.localScale= new Vector3(1f, 0.6f, 0f);
+        }
     }
 }
