@@ -70,7 +70,6 @@ public class PlayerController : MonoBehaviour {
     {
         if (other.gameObject.tag == "Monster")
         {
-            Recoil(other);
             Hurt();
         } else if (other.gameObject.tag == "Power-Up")
         {
@@ -82,7 +81,6 @@ public class PlayerController : MonoBehaviour {
     // Triggers when the player is injured
     public void Hurt()
     {
-        //Recoil();
         if (isGrown)
         {
             Shrink();
