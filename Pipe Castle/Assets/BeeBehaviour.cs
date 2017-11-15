@@ -7,37 +7,35 @@ public class BeeBehaviour : MonoBehaviour
 
     public float horizontalSpeed;
     public float verticalSpeed;
-    private int roundCount = 0;
+    private GameObject player;
 
     private Vector2 tempPosition;
 
     // Use this for initialization
     void Start() {
         tempPosition = transform.position;
-        horizontalSpeed = 0.03F;
-        verticalSpeed = 4;
+        horizontalSpeed = 2;
+        verticalSpeed = 2;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void FixedUpdate() {
-        //tempPosition.x += horizontalSpeed;
-        //we will want to use horizontalSpeed to follow the player or pace back and forth
-        if (roundCount == 0) {
-            tempPosition.y = Mathf.Sin(Time.realtimeSinceStartup * verticalSpeed);
-            transform.position = tempPosition;
+        if (player.transform.position.x < this.transform.position.x) {
+            tempPosition.x -= horizontalSpeed;
         }
-        else if (roundCount == 1) {
-            tempPosition.x = Mathf.Sin(Time.realtimeSinceStartup * verticalSpeed);
-            transform.position = tempPosition;
+        else if (player.transform.position.x > this.transform.position.x) {
+            tempPosition.x += horizontalSpeed;
         }
-        else if (roundCount == 2) {
 
+        if (player.transform.position.y < this.transform.position.y) {
+            tempPosition.y -= verticalSpeed;
         }
-        else {
-            roundCount = -1;
+        else if (player.transform.position.y > this.transform.position.y) {
+            tempPosition.y += verticalSpeed;
         }
-        roundCount++;
-        
+
+        transform.position = tempPosition;
     }
 
 }

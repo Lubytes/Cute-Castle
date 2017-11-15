@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212513326969006940}
   - component: {fileID: 61623272904351796}
   - component: {fileID: 114179159743831922}
+  - component: {fileID: 50270993725471810}
   m_Layer: 0
   m_Name: spider
   m_TagString: Untagged
@@ -42,6 +43,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50270993725471810
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1915684579834000}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!61 &61623272904351796
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -78,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ebe5c49cde3f0a4da830c7185ea37a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
 --- !u!212 &212513326969006940
 SpriteRenderer:
   m_ObjectHideFlags: 1
