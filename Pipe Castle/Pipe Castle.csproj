@@ -227,9 +227,12 @@
   <ItemGroup>
     <Compile Include="Assets\BeeBehaviour.cs" />
     <Compile Include="Assets\BigSpiderBehaviour.cs" />
+    <Compile Include="Assets\BossFrogBehaviour.cs" />
     <Compile Include="Assets\FlyBehaviour.cs" />
-    <Compile Include="Assets\PlayerController.cs" />
+    <Compile Include="Assets\MonsterSight.cs" />
     <Compile Include="Assets\SlimeBlueBehaviour.cs" />
+    <Compile Include="Assets\SmallFrogBehaviour.cs" />
+    <Compile Include="Assets\WormBehaviour.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Kenney Game Assets\Base pack\Enemies\enemies_spritesheet.txt" />

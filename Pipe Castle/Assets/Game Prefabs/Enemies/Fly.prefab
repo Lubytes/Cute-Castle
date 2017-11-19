@@ -21,10 +21,9 @@ GameObject:
   - component: {fileID: 4240898980479980}
   - component: {fileID: 212118268458464424}
   - component: {fileID: 61415689241679176}
-  - component: {fileID: 114218915309887856}
   - component: {fileID: 114131379917140280}
   m_Layer: 0
-  m_Name: Fly
+  m_Name: fly
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1424262837941334}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.98, y: -3.02, z: 0}
+  m_LocalPosition: {x: -2.33, y: 1.77, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -81,18 +80,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalSpeed: 0
   verticalSpeed: 0
-  amplitude: 0
---- !u!114 &114218915309887856
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1424262837941334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &212118268458464424
 SpriteRenderer:
   m_ObjectHideFlags: 1

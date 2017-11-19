@@ -8,34 +8,22 @@ public class BeeBehaviour : MonoBehaviour
     public float horizontalSpeed;
     public float verticalSpeed;
     private GameObject player;
+    private MonsterSight monstersight;
 
-    private Vector2 tempPosition;
+    private Vector2 velocity;
 
     // Use this for initialization
     void Start() {
-        tempPosition = transform.position;
-        horizontalSpeed = 2;
-        verticalSpeed = 2;
+        velocity = transform.position;
         player = GameObject.FindGameObjectWithTag("Player");
+        monstersight = gameObject.GetComponent<MonsterSight>();
     }
 
     // Update is called once per frame
     void FixedUpdate() {
-        if (player.transform.position.x < this.transform.position.x) {
-            tempPosition.x -= horizontalSpeed;
+        if (monstersight.iSeeYou) {
+            this.transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position, 1.5F*Time.deltaTime);
         }
-        else if (player.transform.position.x > this.transform.position.x) {
-            tempPosition.x += horizontalSpeed;
-        }
-
-        if (player.transform.position.y < this.transform.position.y) {
-            tempPosition.y -= verticalSpeed;
-        }
-        else if (player.transform.position.y > this.transform.position.y) {
-            tempPosition.y += verticalSpeed;
-        }
-
-        transform.position = tempPosition;
     }
 
 }
