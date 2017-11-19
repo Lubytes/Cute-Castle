@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 /*
  *  Michael Altair 
  *  This class controls the player character's movement
  */
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : NetworkBehaviour {
 
     private bool grounded;
 
@@ -20,13 +21,25 @@ public class PlayerController : MonoBehaviour {
     public HeartsGUI hearts;
     public CoinCount coinCount;
 
+	public Sprite localPlayerSprite;
+	public Sprite remotePlayerSprite;
+
     // Use this for initialization
     void Start () {
-
+		if (isLocalPlayer) {
+			GetComponent<SpriteRenderer> ().sprite = localPlayerSprite;
+		} else {
+			GetComponent<SpriteRenderer> ().sprite = remotePlayerSprite;
+		}
     }
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+		if (!isLocalPlayer)
+		{
+			return;
+		}
+
         if (Input.GetAxisRaw("Horizontal") != 0)
         {
             Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
