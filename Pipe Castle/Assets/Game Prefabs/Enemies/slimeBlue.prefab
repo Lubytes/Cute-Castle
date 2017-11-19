@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114018933927846024}
   m_Layer: 0
   m_Name: slimeBlue
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1997589288818958}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.03, y: -2.64, z: 0}
+  m_LocalPosition: {x: -1.5044695, y: -2.6019697, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -113,12 +113,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1997589288818958}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1429a81afc89b1746acb2a4bf8491cdd, type: 3}
+  m_Script: {fileID: 11500000, guid: e0dd699f3349bf64884f0c20d8c69ae9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   iSeeYou: 0
   location: {x: 0, y: 0, z: 0}
-  owner: {fileID: 0}
+  owner: {fileID: 1997589288818958}
   player: {fileID: 0}
 --- !u!114 &114836068383456518
 MonoBehaviour:
@@ -128,10 +128,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1997589288818958}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcf32977684d55c48af9ce0a57a2f731, type: 3}
+  m_Script: {fileID: 11500000, guid: f7b948201e1192d41955a97c8e28f43f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
+  rb: {fileID: 50659329592232102}
 --- !u!212 &212690998070108176
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -165,7 +165,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 9901b6d00045e2f4eb0cb5bfd9b880e8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

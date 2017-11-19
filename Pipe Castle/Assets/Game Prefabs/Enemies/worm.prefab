@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 95457198864317130}
   m_Layer: 0
   m_Name: worm
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1380486862903696}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.7755995, y: -2.9579587, z: 0}
+  m_LocalPosition: {x: -5.0595446, y: -2.6455903, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -98,7 +98,7 @@ Animator:
   m_GameObject: {fileID: 1380486862903696}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 08283a00ec68a4946b7ac612a7829e08, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -114,10 +114,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1380486862903696}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f95a4d430baabc4cbdd9cdf1b696929, type: 3}
+  m_Script: {fileID: 11500000, guid: 51c3134f4de32364e9be73c3675076b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
+  rb: {fileID: 50867222033443900}
 --- !u!212 &212348706957174866
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -151,7 +151,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: ab6a6121598394040a4342abe25406dc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

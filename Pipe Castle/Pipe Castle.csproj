@@ -228,12 +228,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\BeeBehaviour.cs" />
+    <Compile Include="Assets\BigSpiderBehaviour.cs" />
+    <Compile Include="Assets\BossFrogBehaviour.cs" />
     <Compile Include="Assets\CameraAI.cs" />
     <Compile Include="Assets\CoinCount.cs" />
+    <Compile Include="Assets\FlyBehaviour.cs" />
     <Compile Include="Assets\HeartsGUI.cs" />
     <Compile Include="Assets\ItemBox.cs" />
     <Compile Include="Assets\MonsterDamageLogic.cs" />
+    <Compile Include="Assets\MonsterSight.cs" />
     <Compile Include="Assets\PlayerController.cs" />
+    <Compile Include="Assets\SlimeBlueBehaviour.cs" />
+    <Compile Include="Assets\SmallFrogBehaviour.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\CircleObject.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\GameObjectExtensions.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\GPUInstancing.cs" />
@@ -254,6 +261,7 @@
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TmxObject.cs" />
     <Compile Include="Assets\UserInput.cs" />
     <Compile Include="Assets\WeaponScript.cs" />
+    <Compile Include="Assets\WormBehaviour.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Kenney Game Assets\Base pack\Enemies\enemies_spritesheet.txt" />
