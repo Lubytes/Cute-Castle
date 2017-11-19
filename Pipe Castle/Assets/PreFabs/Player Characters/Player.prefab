@@ -163,13 +163,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1976064566849312}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01ab784d4a4a9d74182426374af87edb, type: 3}
+  m_Script: {fileID: 11500000, guid: a28dfcd899f2221498ef5327e79e05bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
   jumpPower: 6
   velocity: {x: 0, y: 0, z: 0}
-  isGrown: 1
+  isGrown: 0
   hearts: {fileID: 0}
   coinCount: {fileID: 0}
 --- !u!212 &212592261283865226

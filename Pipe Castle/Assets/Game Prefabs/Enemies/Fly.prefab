@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61415689241679176}
   - component: {fileID: 114131379917140280}
   m_Layer: 0
-  m_Name: fly
+  m_Name: Fly
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
