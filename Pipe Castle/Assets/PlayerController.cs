@@ -82,6 +82,7 @@ public class PlayerController : MonoBehaviour {
     // Triggers when the player is injured
     public void Hurt()
     {
+        Handheld.Vibrate();
         hearts.DecreaseHeart();
         if(hearts.numHearts == 0)
         {
