@@ -156,6 +156,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1604671964221190, guid: 7fa349ac5c15acd4880473993ddcbcd2, type: 2}
+      propertyPath: m_TagString
+      value: HeartDisplay
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7fa349ac5c15acd4880473993ddcbcd2, type: 2}
   m_IsPrefabParent: 0
@@ -531,6 +535,10 @@ Prefab:
     - target: {fileID: 4174664407925912, guid: 91c86d92e74514699a08369889596516, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1061404167715704, guid: 91c86d92e74514699a08369889596516, type: 2}
+      propertyPath: m_TagString
+      value: CoinDisplay
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91c86d92e74514699a08369889596516, type: 2}
