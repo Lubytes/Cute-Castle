@@ -99,6 +99,7 @@ public class PlayerController : NetworkBehaviour {
     // Triggers when the player is injured
     public void Hurt()
     {
+        Handheld.Vibrate();
         hearts.DecreaseHeart();
         if(hearts.numHearts == 0)
         {
