@@ -24,10 +24,13 @@ public class PlayerController : NetworkBehaviour {
 	public Sprite localPlayerSprite;
 	public Sprite remotePlayerSprite;
 
+	public GameObject player;
+
     // Use this for initialization
     void Start () {
 		if (isLocalPlayer) {
 			GetComponent<SpriteRenderer> ().sprite = localPlayerSprite;
+			Camera.main.GetComponent<CameraAI> ().SetTarget (gameObject);
 		} else {
 			GetComponent<SpriteRenderer> ().sprite = remotePlayerSprite;
 		}
