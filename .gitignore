@@ -3,6 +3,7 @@
 # =============== #
 Temp/
 Library/
+*.Thumbs.db
 
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
@@ -11,13 +12,15 @@ ExportedObj/
 obj/
 *.svd
 *.userprefs
-/*.csproj
+*.csproj
 *.pidb
 *.suo
 /*.sln
 *.user
 *.unityproj
 *.booproj
+.vs
+.vs/**
 
 # ============ #
 # OS generated #
@@ -28,4 +31,5 @@ obj/
 .Spotlight-V100
 .Trashes
 ehthumbs.db
-Thumbs.db
+*.db
+*.apk
