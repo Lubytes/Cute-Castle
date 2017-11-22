@@ -35,6 +35,7 @@ public class PlayerController : NetworkBehaviour {
 			GetComponent<SpriteRenderer> ().sprite = localPlayerSprite;
 			Camera.main.GetComponent<CameraAI> ().SetTarget (gameObject);
 			GameObject.Find("UserInput").GetComponent<UserInput> ().SetPlayer(gameObject);
+            gameObject.GetComponent<Collider2D>().enabled = true;
 		} else {
 			GetComponent<SpriteRenderer> ().sprite = remotePlayerSprite;
 		}
