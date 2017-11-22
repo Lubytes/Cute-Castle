@@ -1,9 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class PauseGame : MonoBehaviour {
+	
 	public Transform canvas;
+	public Scene scene;
+
 	// Update is called once per frame
 	void Update () {
 		//using escape key for now until toggle is put in game screen.
@@ -25,4 +30,21 @@ public class PauseGame : MonoBehaviour {
 			Time.timeScale = 1;
 		}
 	}
+
+	public void Restart(){
+		
+		scene = SceneManager.GetActiveScene ();
+		SceneManager.LoadScene (scene.name);
+		Pause ();
+
+	}
+
+//	public void Save(){
+//	
+//		scene = SceneManager.GetActiveScene ();
+//
+//
+//	}
+		
 }
+
