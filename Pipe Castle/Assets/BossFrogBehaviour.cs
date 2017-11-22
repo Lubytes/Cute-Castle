@@ -35,8 +35,9 @@ public class BossFrogBehaviour : MonoBehaviour {
             spawnCounter += 1;
 
             if (spawnCounter > 150) {
-                GameObject foo = GameObject.Instantiate((GameObject)Resources.Load("smallFrog"));
-                foo.transform.position = gameObject.transform.position;
+                GameObject frog = GameObject.Instantiate((GameObject)Resources.Load("smallFrog"));
+                Vector2 offset = new Vector2(-2F, 3F);
+                frog.transform.position = new Vector3(gameObject.transform.position.x + offset.x, gameObject.transform.position.y + offset.y, 0F);
                 spawnCounter = 0;
             }
         }
