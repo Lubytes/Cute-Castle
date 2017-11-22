@@ -18,8 +18,8 @@ public class PlayerController : NetworkBehaviour {
     public Vector3 velocity;
 
     public bool isGrown;
-    public HeartsGUI hearts;
-    public CoinCount coinCount;
+    private HeartsGUI hearts;
+    private CoinCount coinCount;
 
 	public Sprite localPlayerSprite;
 	public Sprite remotePlayerSprite;
@@ -28,7 +28,10 @@ public class PlayerController : NetworkBehaviour {
 
     // Use this for initialization
     void Start () {
-		if (isLocalPlayer) {
+        coinCount = GameObject.FindGameObjectWithTag("CoinDisplay").GetComponent<CoinCount>();
+        hearts = GameObject.FindGameObjectWithTag("HeartDisplay").GetComponent<HeartsGUI>();
+
+        if (isLocalPlayer) {
 			GetComponent<SpriteRenderer> ().sprite = localPlayerSprite;
 			Camera.main.GetComponent<CameraAI> ().SetTarget (gameObject);
 			GameObject.Find("UserInput").GetComponent<UserInput> ().SetPlayer(gameObject);
