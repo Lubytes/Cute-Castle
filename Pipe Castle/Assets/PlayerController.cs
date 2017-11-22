@@ -31,6 +31,7 @@ public class PlayerController : NetworkBehaviour {
 		if (isLocalPlayer) {
 			GetComponent<SpriteRenderer> ().sprite = localPlayerSprite;
 			Camera.main.GetComponent<CameraAI> ().SetTarget (gameObject);
+			GameObject.Find("UserInput").GetComponent<UserInput> ().SetPlayer(gameObject);
 		} else {
 			GetComponent<SpriteRenderer> ().sprite = remotePlayerSprite;
 		}

@@ -8,8 +8,8 @@ public class UserInput : MonoBehaviour {
     public int moveDir;
 
 	// Use this for initialization
-	void Start () {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+	public void SetPlayer(GameObject thePlayer) {
+		player = thePlayer.GetComponent<PlayerController>();
 	}
 
     // Update is called once per frame
