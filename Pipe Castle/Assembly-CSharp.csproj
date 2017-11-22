@@ -55,6 +55,7 @@
      <Compile Include="Assets\CoinCount.cs" />
      <Compile Include="Assets\ItemBox.cs" />
      <Compile Include="Assets\MonsterDamageLogic.cs" />
+     <Compile Include="Assets\PauseGame.cs" />
      <Compile Include="Assets\PlayerController.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\CircleObject.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\GameObjectExtensions.cs" />
