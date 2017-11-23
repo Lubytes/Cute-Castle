@@ -108,6 +108,7 @@
      <None Include="Assets\Tiled2Unity\Textures\_ReadMe.txt" />
      <None Include="Assets\Tiled2Unity\Shaders\shaDefault-Instanced.shader" />
      <None Include="Assets\Kenney Game Assets\Extra animations and enemies\Spritesheets\alienGreen.xml" />
+     <None Include="Assets\Tiled2Unity\Imported\FourthLevel.tiled2unity.xml" />
      <None Include="Assets\Tiled2Unity\Shaders\shaColorKey-Instanced.shader" />
      <None Include="Assets\Kenney Game Assets\Extra animations and enemies\Spritesheets\alienYellow.xml" />
      <None Include="Assets\Tiled2Unity\Imported\SecondLevel.tiled2unity.xml" />

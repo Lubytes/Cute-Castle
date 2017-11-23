@@ -1,22 +1,18 @@
 fileFormatVersion: 2
-guid: 2ad23d90a0a2b8f44b0c3b4ea9594af3
+guid: 8b7aa6741a489f043a2a46ee899c3499
+timeCreated: 1511296949
+licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: ThirdLevel_mesh_0012
+    100000: FourthLevel_mesh_0001
     100002: //RootNode
-    400000: ThirdLevel_mesh_0012
+    400000: FourthLevel_mesh_0001
     400002: //RootNode
-    2300000: ThirdLevel_mesh_0012
-    3300000: ThirdLevel_mesh_0012
-    4300000: ThirdLevel_mesh_0012
-    9500000: //RootNode
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: ThirdLevel_mesh_0012Mat
-    second: {fileID: 2100000, guid: 8e293500e3a8c45ac912b793ae70ee60, type: 2}
+    2300000: FourthLevel_mesh_0001
+    3300000: FourthLevel_mesh_0001
+    4300000: FourthLevel_mesh_0001
+  externalObjects: {}
   materials:
     importMaterials: 0
     materialName: 0

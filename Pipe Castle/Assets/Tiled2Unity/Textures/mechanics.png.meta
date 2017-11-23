@@ -1,6 +1,11 @@
 fileFormatVersion: 2
-guid: d18aafa1aaf5a48d48514a2a9d91af28
-timeCreated: 1511113269
+<<<<<<< HEAD
+guid: 0b290c0639ea0ed489d8479119a63609
+timeCreated: 1511111749
+=======
+guid: 7cf32fb56188e7d4dae323f291279dfc
+timeCreated: 1511355748
+>>>>>>> sarah-c
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}

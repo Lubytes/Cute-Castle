@@ -1,7 +1,5 @@
 fileFormatVersion: 2
-guid: 8a83cc67c7a8747409ef4c9a7467efab
-timeCreated: 1511113271
-licenseType: Free
+guid: ababf77aa52a01b479aebde013c04414
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -12,7 +10,13 @@ ModelImporter:
     2300000: ThirdLevel_mesh_0013
     3300000: ThirdLevel_mesh_0013
     4300000: ThirdLevel_mesh_0013
-  externalObjects: {}
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ThirdLevel_mesh_0013Mat
+    second: {fileID: 2100000, guid: 899a8dfadea1d4107af0eacd0cdbaf9c, type: 2}
   materials:
     importMaterials: 0
     materialName: 0
