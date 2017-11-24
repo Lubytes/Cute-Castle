@@ -17,9 +17,10 @@ public class PlayerController : NetworkBehaviour {
 
     public Vector3 velocity;
 
-    public bool isGrown;
     private HeartsGUI hearts;
     private CoinCount coinCount;
+
+    public bool localPlayer;
 
 	public Sprite localPlayerSprite;
 	public Sprite remotePlayerSprite;
@@ -32,12 +33,14 @@ public class PlayerController : NetworkBehaviour {
         hearts = GameObject.FindGameObjectWithTag("HeartDisplay").GetComponent<HeartsGUI>();
 
         if (isLocalPlayer) {
+            localPlayer = true;
 			GetComponent<SpriteRenderer> ().sprite = localPlayerSprite;
 			Camera.main.GetComponent<CameraAI> ().SetTarget (gameObject);
 			GameObject.Find("UserInput").GetComponent<UserInput> ().SetPlayer(gameObject);
             gameObject.GetComponent<Collider2D>().enabled = true;
 		} else {
 			GetComponent<SpriteRenderer> ().sprite = remotePlayerSprite;
+            localPlayer = false;
 		}
     }
 	
