@@ -238,6 +238,7 @@
     <Compile Include="Assets\HeartsGUI.cs" />
     <Compile Include="Assets\ItemBox.cs" />
     <Compile Include="Assets\LeverPuzzle.cs" />
+    <Compile Include="Assets\LockBox.cs" />
     <Compile Include="Assets\MonsterDamageLogic.cs" />
     <Compile Include="Assets\MonsterSight.cs" />
     <Compile Include="Assets\PlayerController.cs" />

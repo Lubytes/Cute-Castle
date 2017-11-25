@@ -26,6 +26,9 @@ public class PlayerController : NetworkBehaviour {
 	public Sprite remotePlayerSprite;
 
 	public GameObject player;
+    public SpriteRenderer heldRenderer;
+
+    private string inHandsColour = "";
 
     // Use this for initialization
     void Start () {
@@ -126,13 +129,40 @@ public class PlayerController : NetworkBehaviour {
         if(powerUp.name == "Health-Up" || powerUp.name == "Health-Up(Clone)")
         {
             hearts.IncreaseHeart();
+            Destroy(powerUp);
         } else if(powerUp.name == "Coin" || powerUp.name == "Coin(Clone)")
         {
             coinCount.IncrementCoin();
+            Destroy(powerUp);
+        } else if(powerUp.name == "Yellow Key" || powerUp.name == "Yellow Key(Clone)")
+        {
+            if(inHandsColour.Equals(""))
+            {
+                PickUpObject(powerUp);
+                inHandsColour = "Yellow";
+            }
+        } else if (powerUp.name == "Blue Key" || powerUp.name == "Blue Key(Clone)")
+        {
+            if (inHandsColour.Equals(""))
+            {
+                PickUpObject(powerUp);
+                inHandsColour = "Blue";
+            }
+        } else if (powerUp.name == "Red Key" || powerUp.name == "Red Key(Clone)")
+        {
+            if (inHandsColour.Equals(""))
+            {
+                PickUpObject(powerUp);
+                inHandsColour = "Red";
+            }
+        } else if (powerUp.name == "Green Key" || powerUp.name == "Green Key(Clone)")
+        {
+            if (inHandsColour.Equals(""))
+            {
+                PickUpObject(powerUp);
+                inHandsColour = "Green";
+            }
         }
-
-        // Destroys the powerup in the end
-        Destroy(powerUp);
     }
 
     // Makes the player recoil
@@ -158,5 +188,22 @@ public class PlayerController : NetworkBehaviour {
         }
 
         gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(2.5f * dirX, 2.5f * dirY);
+    }
+
+    // Has the character pick up the object and hold it
+    void PickUpObject(GameObject heldObject)
+    {
+        heldRenderer.sprite = heldObject.GetComponent<SpriteRenderer>().sprite;
+        Destroy(heldObject);
+    }
+    public void DropObject()
+    {
+        heldRenderer.sprite = null;
+        inHandsColour = "";
+    }
+
+    public string GetInHandsColour()
+    {
+        return inHandsColour;
     }
 }
