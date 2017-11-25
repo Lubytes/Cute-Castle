@@ -237,6 +237,7 @@
     <Compile Include="Assets\FlyBehaviour.cs" />
     <Compile Include="Assets\HeartsGUI.cs" />
     <Compile Include="Assets\ItemBox.cs" />
+    <Compile Include="Assets\LeverPuzzle.cs" />
     <Compile Include="Assets\MonsterDamageLogic.cs" />
     <Compile Include="Assets\MonsterSight.cs" />
     <Compile Include="Assets\PlayerController.cs" />
@@ -261,6 +262,7 @@
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TileObject.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TmxObject.cs" />
     <Compile Include="Assets\TiltingLever.cs" />
+    <Compile Include="Assets\TriggerScript.cs" />
     <Compile Include="Assets\UserInput.cs" />
     <Compile Include="Assets\WeaponScript.cs" />
     <Compile Include="Assets\WormBehaviour.cs" />
