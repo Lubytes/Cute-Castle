@@ -15,37 +15,38 @@ public class UserInput : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (Input.touchCount == 1)
-        {
-            Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
-            if (hit.collider != null)
+        if(player != null) { 
+            if (Input.touchCount == 1)
             {
-                if (hit.collider.name.Equals("LeftTouch"))
+                Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
+                if (hit.collider != null)
                 {
-                    GoLeft();
-                    if (Input.touchCount > 1)
+                    if (hit.collider.name.Equals("LeftTouch"))
                     {
-                        player.PlayerJump();
+                        GoLeft();
+                        if (Input.touchCount > 1)
+                        {
+                            player.PlayerJump();
+                        }
                     }
-                }
 
-                if (hit.collider.name.Equals("RightTouch"))
-                {
-                    GoRight();
-                    if (Input.touchCount > 1)
+                    if (hit.collider.name.Equals("RightTouch"))
                     {
-                        player.PlayerJump();
+                        GoRight();
+                        if (Input.touchCount > 1)
+                        {
+                            player.PlayerJump();
+                        }
                     }
                 }
             }
-        }
 
-        if(Input.touchCount > 1)
-        {
-            player.PlayerJump();
+            if(Input.touchCount > 1)
+            {
+                player.PlayerJump();
+            }
         }
-       
     }
 
     // Triggers that the user wants the player to go left
