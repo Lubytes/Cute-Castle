@@ -25,4 +25,8 @@ public class FlyBehaviour : MonoBehaviour {
         transform.position = tempPosition;
     }
 
+    public void Hurt()
+    {
+        gameObject.SendMessage("Death");
+    }
 }

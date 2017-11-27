@@ -16,6 +16,12 @@ public class SmallFrogBehaviour : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
+
         if (monstersight.iSeeYou) {
             if (rb.velocity.y == 0) {
                 if (player.transform.position.x < this.transform.position.x) {
@@ -30,5 +36,10 @@ public class SmallFrogBehaviour : MonoBehaviour {
 
             }
         }
+    }
+
+    public void Hurt()
+    {
+        gameObject.SendMessage("Death");
     }
 }

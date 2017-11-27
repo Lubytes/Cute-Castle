@@ -33,4 +33,9 @@ public class WormBehaviour : MonoBehaviour {
         }
 
     }
+
+    public void Hurt()
+    {
+        gameObject.SendMessage("Death");
+    }
 }
