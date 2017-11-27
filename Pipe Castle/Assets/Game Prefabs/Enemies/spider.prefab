@@ -23,6 +23,8 @@ GameObject:
   - component: {fileID: 61623272904351796}
   - component: {fileID: 114179159743831922}
   - component: {fileID: 50270993725471810}
+  - component: {fileID: 95928758146010094}
+  - component: {fileID: 114324262460173944}
   m_Layer: 0
   m_Name: spider
   m_TagString: Monster
@@ -37,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1915684579834000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.1315217, y: -2.4274874, z: 0}
+  m_LocalPosition: {x: -9.127419, y: -2.3705058, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -88,6 +90,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.71, y: 0.45}
   m_EdgeRadius: 0
+--- !u!95 &95928758146010094
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1915684579834000}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2d7e705a6497b6d4f9e37e021b59a5a1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114179159743831922
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -100,6 +119,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 50270993725471810}
+--- !u!114 &114324262460173944
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1915684579834000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73c582da422a89f40be4e8c31c776304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  facingLeft: 1
 --- !u!212 &212513326969006940
 SpriteRenderer:
   m_ObjectHideFlags: 1

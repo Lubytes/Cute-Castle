@@ -18,16 +18,22 @@ public class BossFrogBehaviour : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
+
         if (monstersight.iSeeYou) {
             if (rb.velocity.y == 0) {
                 if (player.transform.position.x < this.transform.position.x) {
-                    rb.AddForce(new Vector3(-0.2F, 2, 0), ForceMode2D.Impulse);
+                    rb.AddForce(new Vector3(-0.3F, 2, 0), ForceMode2D.Impulse);
                 }
                 else if (player.transform.position.x > this.transform.position.x) {
-                    rb.AddForce(new Vector3(0.2F, 2, 0), ForceMode2D.Impulse);
+                    rb.AddForce(new Vector3(0.3F, 2, 0), ForceMode2D.Impulse);
                 }
                 else {
-                    rb.AddForce(new Vector3(0.2F, 2, 0), ForceMode2D.Impulse);
+                    rb.AddForce(new Vector3(0.3F, 2, 0), ForceMode2D.Impulse);
                 }
 
             }
@@ -41,5 +47,10 @@ public class BossFrogBehaviour : MonoBehaviour {
                 spawnCounter = 0;
             }
         }
+    }
+
+    public void Hurt()
+    {
+        gameObject.SendMessage("Death");
     }
 }

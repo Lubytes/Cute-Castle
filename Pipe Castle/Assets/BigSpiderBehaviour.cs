@@ -33,4 +33,9 @@ public class BigSpiderBehaviour : MonoBehaviour {
         }
 
     }
+
+    public void Hurt()
+    {
+        gameObject.SendMessage("Death");
+    }
 }

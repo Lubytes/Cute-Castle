@@ -15,12 +15,12 @@ public class WeaponScript : MonoBehaviour {
 	}
 
     // Damage Logic
-    void OnTriggerEnter2D(Collider2D other)
+    void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Monster")
         {
             // This triggers any functions in the other gameobject called hurt
-            other.SendMessage("Hurt");
+            other.gameObject.SendMessage("Hurt");
         }
     }
 }
