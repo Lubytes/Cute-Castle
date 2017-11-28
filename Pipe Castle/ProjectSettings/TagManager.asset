@@ -13,6 +13,7 @@ TagManager:
   - Health
   - Coin
   - Platform
+  - PlayerSpawn
   layers:
   - Default
   - TransparentFX
