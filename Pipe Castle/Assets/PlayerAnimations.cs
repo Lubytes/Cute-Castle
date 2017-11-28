@@ -2,48 +2,45 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterAnimator : MonoBehaviour {
+public class PlayerAnimations : MonoBehaviour {
 
     public bool facingLeft;
     private Animator anim;
     private bool isAlive = true;
     private float oldXPos;
+    private float oldYPos;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         oldXPos = transform.position.x;
+        oldYPos = transform.position.y;
         anim = gameObject.GetComponent<Animator>();
     }
-	
-	// Update is called once per frame
-	void Update () {
-        if(isAlive)
+
+    void Update()
+    {
+        DetectAirtime();
+    }
+
+    // Update is called once per frame
+    void FixedUpdate () {
+        if (isAlive)
         {
             ChangeDirection();
             DetectMovement();
             oldXPos = transform.position.x;
+            oldYPos = transform.position.y;
         }
-
-    }
-
-    // Triggered to kill the monster
-    public void Death()
-    {
-        anim.SetTrigger("Death");
-        isAlive = false;
-    }
-    public void Disappear()
-    {
-        Destroy(gameObject);
     }
 
     void ChangeDirection() // <0 is left, >0 is right
     {
-        if(facingLeft && (transform.position.x - oldXPos > 0))
+        if (facingLeft && (transform.position.x - oldXPos > 0))
         {
             transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
             facingLeft = false;
-        } else if(!facingLeft && (transform.position.x - oldXPos < 0))
+        }
+        else if (!facingLeft && (transform.position.x - oldXPos < 0))
         {
             transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
             facingLeft = true;
@@ -52,12 +49,30 @@ public class MonsterAnimator : MonoBehaviour {
 
     void DetectMovement()
     {
-        if ((transform.position.x - oldXPos != 0))
+        if (transform.position.x - oldXPos != 0)
         {
             anim.SetBool("isWalking", true);
-        } else
+        }
+        else
         {
             anim.SetBool("isWalking", false);
         }
+    }
+
+    void DetectAirtime()
+    {
+        if (transform.position.y - oldYPos >= 0.01f || transform.position.y - oldYPos <= -0.01f)
+        {
+            anim.SetBool("inAir", true);
+        }
+        else
+        {
+            anim.SetBool("inAir", false);
+        }
+    }
+
+    public void Hurt()
+    {
+        anim.SetTrigger("hurt");
     }
 }

@@ -58,6 +58,8 @@ GameObject:
   - component: {fileID: 114818581861064258}
   - component: {fileID: 114405867349240150}
   - component: {fileID: 114480583479880552}
+  - component: {fileID: 95725961706044884}
+  - component: {fileID: 114098420568524070}
   m_Layer: 0
   m_Name: NetworkedPlayer
   m_TagString: Player
@@ -85,7 +87,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1976064566849312}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.294034, y: -1.9430267, z: 0}
+  m_LocalPosition: {x: -1.9456515, y: -2.1711352, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4773608470871570}
@@ -176,6 +178,35 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.41, y: 0.73}
   m_EdgeRadius: 0
+--- !u!95 &95725961706044884
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1976064566849312}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c8270e6a5047043498aa44aa4a6f99c9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114098420568524070
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1976064566849312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2110e64babc9c424eb33e96e9d382af7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  facingLeft: 0
 --- !u!114 &114237028374403800
 MonoBehaviour:
   m_ObjectHideFlags: 1
