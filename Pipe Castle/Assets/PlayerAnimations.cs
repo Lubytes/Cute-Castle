@@ -10,11 +10,22 @@ public class PlayerAnimations : MonoBehaviour {
     private float oldXPos;
     private float oldYPos;
 
+    public RuntimeAnimatorController p1Anim;
+    public RuntimeAnimatorController p2Anim;
+
     // Use this for initialization
     void Start () {
         oldXPos = transform.position.x;
         oldYPos = transform.position.y;
         anim = gameObject.GetComponent<Animator>();
+
+        if(gameObject.GetComponent<PlayerController>().localPlayer)
+        {
+            anim.runtimeAnimatorController = p1Anim;
+        } else
+        {
+            anim.runtimeAnimatorController = p2Anim;
+        }
     }
 
     void Update()
@@ -49,7 +60,7 @@ public class PlayerAnimations : MonoBehaviour {
 
     void DetectMovement()
     {
-        if (transform.position.x - oldXPos != 0)
+        if (transform.position.x - oldXPos >= 0.01f || transform.position.x - oldXPos <= -0.01f)
         {
             anim.SetBool("isWalking", true);
         }
