@@ -61,6 +61,7 @@ GameObject:
   - component: {fileID: 114480583479880552}
   - component: {fileID: 95725961706044884}
   - component: {fileID: 114098420568524070}
+  - component: {fileID: 61485617492352386}
   m_Layer: 0
   m_Name: NetworkedPlayer
   m_TagString: Player
@@ -88,7 +89,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1976064566849312}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.76, y: -2.19, z: 0}
+  m_LocalPosition: {x: -0.5014373, y: -1.5731462, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4773608470871570}
@@ -174,7 +175,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.27, y: 0.16}
   m_EdgeRadius: 0
---- !u!61 &61938615148921288
+--- !u!61 &61485617492352386
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -186,7 +187,32 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.01}
+  m_Offset: {x: 0, y: -0.4}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.66, y: 0.92}
+    newSize: {x: 0.66, y: 0.92}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.3, y: 0.1}
+  m_EdgeRadius: 0
+--- !u!61 &61938615148921288
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1976064566849312}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: d9ebf625135408040a75b5db6e1ae218, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.02}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -305,14 +331,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a28dfcd899f2221498ef5327e79e05bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grounded: 0
   moveSpeed: 4
   jumpPower: 6
-  velocity: {x: 0, y: 0, z: 0}
   localPlayer: 0
   localPlayerSprite: {fileID: 21300000, guid: 890e527d80213a04082504d9755f8c4a, type: 3}
   remotePlayerSprite: {fileID: 21300000, guid: 8ee801b887213544e95db36d9bb3ca50, type: 3}
   player: {fileID: 0}
   heldRenderer: {fileID: 212543162654933752}
+  fallMultiplier: 2.5
+  lowJumpMultiplier: 2
 --- !u!212 &212543162654933752
 SpriteRenderer:
   m_ObjectHideFlags: 1

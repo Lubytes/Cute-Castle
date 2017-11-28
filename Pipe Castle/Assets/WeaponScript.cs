@@ -19,7 +19,6 @@ public class WeaponScript : MonoBehaviour {
     {
         if (other.gameObject.tag == "Hitbox")
         {
-            Debug.Log("HB!");
             // This triggers any functions in the other gameobject called hurt
             other.gameObject.SendMessageUpwards("Hurt");
         }

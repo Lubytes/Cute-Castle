@@ -12,6 +12,7 @@ TagManager:
   - Hitbox
   - Health
   - Coin
+  - Platform
   layers:
   - Default
   - TransparentFX

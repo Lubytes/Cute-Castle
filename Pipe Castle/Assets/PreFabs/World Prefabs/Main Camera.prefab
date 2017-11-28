@@ -511,7 +511,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.5, y: 0}
+  m_Offset: {x: 5, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -522,7 +522,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5, y: 8}
+  m_Size: {x: 10, y: 8}
   m_EdgeRadius: 0
 --- !u!61 &61927657068901742
 BoxCollider2D:
@@ -536,7 +536,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -2.5, y: 0}
+  m_Offset: {x: -5, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -547,7 +547,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5, y: 8}
+  m_Size: {x: 10, y: 8}
   m_EdgeRadius: 0
 --- !u!81 &81806442464755026
 AudioListener:
@@ -625,7 +625,7 @@ MonoBehaviour:
     m_MaxTimerTimeout: 12000
     m_MinNetSimulatorTimeout: 1
     m_MaxNetSimulatorTimeout: 12000
-  m_Channels: 
+  m_Channels: 0500000000000000
   m_UseWebSockets: 0
   m_UseSimulator: 0
   m_SimulatedLatency: 1
@@ -723,7 +723,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e730e2f35a0d2494cbcd2e5d76dfcb88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDir: 0
 --- !u!124 &124984016548220634
 Behaviour:
   m_ObjectHideFlags: 1

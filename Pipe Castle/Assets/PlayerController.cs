@@ -10,12 +10,10 @@ using UnityEngine.Networking;
 
 public class PlayerController : NetworkBehaviour {
 
-    private bool grounded;
+    public bool grounded;
 
     public float moveSpeed;
-    public float jumpPower = 10;
-
-    public Vector3 velocity;
+    public float jumpPower;
 
     private HeartsGUI hearts;
     private CoinCount coinCount;
@@ -30,10 +28,17 @@ public class PlayerController : NetworkBehaviour {
 
     private string inHandsColour = "";
 
+    private Rigidbody2D rb;
+    public float fallMultiplier = 2.5f;
+    public float lowJumpMultiplier = 2f;
+    private float oldYPos;
+
     // Use this for initialization
     void Start () {
         coinCount = GameObject.FindGameObjectWithTag("CoinDisplay").GetComponent<CoinCount>();
         hearts = GameObject.FindGameObjectWithTag("HeartDisplay").GetComponent<HeartsGUI>();
+        rb = GetComponent<Rigidbody2D>();
+        oldYPos = transform.position.y;
 
         if (isLocalPlayer) {
             localPlayer = true;
@@ -54,42 +59,52 @@ public class PlayerController : NetworkBehaviour {
 			return;
 		}
 
-        if (Input.GetAxisRaw("Horizontal") != 0)
+        oldYPos = transform.position.y;
+        float dir = Input.GetAxis("Horizontal");
+        if(dir != 0)
         {
-            Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-            PlayerMove(input);
-        }
-
-
-        // Detecting if the player is midair
-        if(gameObject.GetComponent<Rigidbody2D>().velocity.y == 0)
-        {
-            grounded = true;
-        } else
-        {
-            grounded = false;
+            rb.velocity = new Vector2(dir * moveSpeed, rb.velocity.y);
         }
     }
 
-    public void PlayerMove(Vector2 input)
+    void Update()
     {
-        velocity.y = 0;
+        if (!isLocalPlayer)
+        {
+            return;
+        }
 
-        float targetVelocityX = input.x * moveSpeed;
-        velocity.x = targetVelocityX;
-        transform.Translate(velocity * Time.deltaTime);
-
-        if(input.y > 0)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             PlayerJump();
         }
+
+        if (rb.velocity.y < 0)
+        {
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+        }
+
+        if (transform.position.y - oldYPos <= 0.001f && transform.position.y - oldYPos >= -0.001f)
+        {
+            grounded = true;
+        }
+        else
+        {
+            grounded = false;
+        }
+
+    }
+
+    public void PlayerMove(float dir)
+    {
+        rb.velocity = new Vector2(dir * moveSpeed, rb.velocity.y);
     }
 
     public void PlayerJump()
     {
         if (grounded)
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(gameObject.GetComponent<Rigidbody2D>().velocity.x, jumpPower, 0), ForceMode2D.Impulse);
+            rb.velocity = new Vector2(rb.velocity.x, 1f * jumpPower);
         }
     }
 
@@ -98,6 +113,7 @@ public class PlayerController : NetworkBehaviour {
     {
         if (other.gameObject.tag == "Monster")
         {
+            Recoil(other);
             Hurt();
         } else if (other.gameObject.tag == "Power-Up")
         {
@@ -112,6 +128,14 @@ public class PlayerController : NetworkBehaviour {
             Destroy(other.gameObject);
         }
 
+    }
+
+    void OnCollisionStay2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Platform")
+        {
+            grounded = true;
+        }
     }
 
     // Triggers when the player is injured
@@ -166,7 +190,7 @@ public class PlayerController : NetworkBehaviour {
     }
 
     // Makes the player recoil
-    void Recoil(Collider2D other)
+    void Recoil(Collision2D other)
     {
         int dirX, dirY;
 
