@@ -11,12 +11,11 @@ public class CameraAI : MonoBehaviour {
     Vector3 targetPos;
     private Camera mainCamera;
     // Use this for initialization
-    void Start()
-    {
-        target = GameObject.Find("Player");
-        mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
-        targetPos = transform.position;
-    }
+
+	public void SetTarget(GameObject theTarget) {
+		target = theTarget;
+		targetPos = transform.position;
+	}
 
     // Update is called once per frame
     void FixedUpdate()
