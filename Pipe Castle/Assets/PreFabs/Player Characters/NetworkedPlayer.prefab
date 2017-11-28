@@ -333,7 +333,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grounded: 0
   moveSpeed: 4
-  jumpPower: 6.5
+  jumpPower: 6
   localPlayer: 0
   localPlayerSprite: {fileID: 21300000, guid: 890e527d80213a04082504d9755f8c4a, type: 3}
   remotePlayerSprite: {fileID: 21300000, guid: 8ee801b887213544e95db36d9bb3ca50, type: 3}
