@@ -239,6 +239,7 @@
     <Compile Include="Assets\MonsterAnimator.cs" />
     <Compile Include="Assets\MonsterDamageLogic.cs" />
     <Compile Include="Assets\MonsterSight.cs" />
+    <Compile Include="Assets\PlayerAnimations.cs" />
     <Compile Include="Assets\PlayerController.cs" />
     <Compile Include="Assets\SlimeBlueBehaviour.cs" />
     <Compile Include="Assets\SmallFrogBehaviour.cs" />

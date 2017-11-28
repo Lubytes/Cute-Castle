@@ -6,7 +6,6 @@ public class MonsterAnimator : MonoBehaviour {
 
     public bool facingLeft;
     private Animator anim;
-    private Rigidbody2D rb;
     private bool isAlive = true;
     private float oldXPos;
 
@@ -14,8 +13,6 @@ public class MonsterAnimator : MonoBehaviour {
 	void Start () {
         oldXPos = transform.position.x;
         anim = gameObject.GetComponent<Animator>();
-        rb = gameObject.GetComponent<Rigidbody2D>();
-
     }
 	
 	// Update is called once per frame
