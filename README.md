@@ -1,4 +1,4 @@
-# Pipe Castle
+# Cute Castle
 Dalhousie University CSCI 4176 final project.
 
 A 2D style puzzle game.
