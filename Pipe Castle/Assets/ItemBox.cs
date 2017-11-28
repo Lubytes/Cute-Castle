@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class ItemBox : MonoBehaviour {
 
-    public bool isHealth;
-
     public GameObject storedPowerUp;
     public Sprite emptyBlock;
     public BoxCollider2D trigger;
@@ -35,7 +33,7 @@ public class ItemBox : MonoBehaviour {
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Power-Up")
+        if (other.gameObject.tag == "Power-Up" || other.gameObject.tag == "Health" || other.gameObject.tag == "Coin")
         {
             other.GetComponent<CircleCollider2D>().enabled = true;
         }
