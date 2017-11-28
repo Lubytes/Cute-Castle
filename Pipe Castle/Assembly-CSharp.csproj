@@ -56,21 +56,22 @@
      <Compile Include="Assets\BossFrogBehaviour.cs" />
      <Compile Include="Assets\CameraAI.cs" />
      <Compile Include="Assets\CoinCount.cs" />
+     <Compile Include="Assets\EndlevelDoor.cs" />
      <Compile Include="Assets\FlyBehaviour.cs" />
      <Compile Include="Assets\HeartsGUI.cs" />
      <Compile Include="Assets\ItemBox.cs" />
+     <Compile Include="Assets\LeverPuzzle.cs" />
+     <Compile Include="Assets\LockBox.cs" />
      <Compile Include="Assets\MainScreenController.cs" />
+     <Compile Include="Assets\MonsterAnimator.cs" />
      <Compile Include="Assets\MonsterDamageLogic.cs" />
-<<<<<<< HEAD
      <Compile Include="Assets\MonsterSight.cs" />
-     <Compile Include="Assets\PlayerController.cs" />
-     <Compile Include="Assets\SlimeBlueBehaviour.cs" />
-     <Compile Include="Assets\SmallFrogBehaviour.cs" />
-=======
      <Compile Include="Assets\PauseGame.cs" />
+     <Compile Include="Assets\PlayerAnimations.cs" />
      <Compile Include="Assets\PlayerController.cs" />
      <Compile Include="Assets\ReturnIndex.cs" />
->>>>>>> sarah-dev
+     <Compile Include="Assets\SlimeBlueBehaviour.cs" />
+     <Compile Include="Assets\SmallFrogBehaviour.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\CircleObject.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\GameObjectExtensions.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\GPUInstancing.cs" />
@@ -89,6 +90,8 @@
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TileLayer.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TileObject.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TmxObject.cs" />
+     <Compile Include="Assets\TiltingLever.cs" />
+     <Compile Include="Assets\TriggerScript.cs" />
      <Compile Include="Assets\UserInput.cs" />
      <Compile Include="Assets\WeaponScript.cs" />
      <Compile Include="Assets\WormBehaviour.cs" />
@@ -99,6 +102,7 @@
      <None Include="Assets\Tiled2Unity\Prefabs\_ReadMe.txt" />
      <None Include="Assets\Tiled2Unity\Shaders\Tiled2Unity.cginc" />
      <None Include="Assets\Kenney Game Assets\Extra animations and enemies\Spritesheets\aliens.xml" />
+     <None Include="Assets\Tiled2Unity\Imported\FifthLevel.tiled2unity.xml" />
      <None Include="Assets\Kenney Game Assets\Extra animations and enemies\Spritesheets\alienPink.xml" />
      <None Include="Assets\Tiled2Unity\Tiled2Unity.export.txt" />
      <None Include="Assets\Tiled2Unity\Shaders\shaDepth.shader" />
@@ -125,6 +129,7 @@
      <None Include="Assets\Tiled2Unity\Shaders\shaDepthColorKey.shader" />
      <None Include="Assets\Tiled2Unity\Shaders\shaDepthColorKey-Instanced.shader" />
      <None Include="Assets\Tiled2Unity\License.txt" />
+     <None Include="Assets\Tiled2Unity\Imported\SixthLevel.tiled2unity.xml" />
      <None Include="Assets\Tiled2Unity\Imported\_ReadMe.txt" />
      <None Include="Assets\Kenney Game Assets\Base pack\Enemies\enemies_spritesheet.txt" />
      <None Include="Assets\Kenney Game Assets\Extra animations and enemies\Spritesheets\alienBlue.xml" />
