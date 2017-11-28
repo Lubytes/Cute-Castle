@@ -8,6 +8,8 @@ public class BossFrogBehaviour : MonoBehaviour {
     private MonsterSight monstersight;
     private int spawnCounter;
 
+    public GameObject deathEventTrigger;
+
     // Use this for initialization
     void Start() {
         rb = GetComponent<Rigidbody2D>();
@@ -51,6 +53,10 @@ public class BossFrogBehaviour : MonoBehaviour {
 
     public void Hurt()
     {
+        if(deathEventTrigger != null)
+        {
+            deathEventTrigger.SetActive(false);
+        }
         if (gameObject.GetComponent<Rigidbody2D>() != null)
         {
             Destroy(gameObject.GetComponent<Rigidbody2D>());
