@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 /*
  *  Michael Altair 
@@ -39,6 +40,8 @@ public class PlayerController : NetworkBehaviour {
         hearts = GameObject.FindGameObjectWithTag("HeartDisplay").GetComponent<HeartsGUI>();
         rb = GetComponent<Rigidbody2D>();
         oldYPos = transform.position.y;
+		DontDestroyOnLoad (this);
+		SetupSpawning ();
 
         if (isLocalPlayer) {
             localPlayer = true;
@@ -188,6 +191,22 @@ public class PlayerController : NetworkBehaviour {
             }
         }
     }
+
+	void SetupSpawning()
+	{
+		SceneManager.sceneLoaded += SceneLoaded;
+	}
+
+	void SceneLoaded(Scene _scene, LoadSceneMode _mode)
+	{
+		GoToSpawn ();
+		Start ();
+	}
+
+	void GoToSpawn()
+	{
+		gameObject.transform.position = GameObject.Find ("SpawnPosition").transform.position;
+	}
 
     // Makes the player recoil
     void Recoil(Collision2D other)
