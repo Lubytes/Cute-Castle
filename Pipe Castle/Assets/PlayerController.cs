@@ -10,12 +10,12 @@ using UnityEngine.Networking;
 
 public class PlayerController : NetworkBehaviour {
 
-    private bool grounded;
+    public bool grounded;
 
     public float moveSpeed;
-    public float jumpPower = 10;
+    public float jumpPower;
 
-    public Vector3 velocity;
+    //public Vector3 velocity;
 
     private HeartsGUI hearts;
     private CoinCount coinCount;
@@ -30,10 +30,15 @@ public class PlayerController : NetworkBehaviour {
 
     private string inHandsColour = "";
 
+    private Rigidbody2D rb;
+    public float fallMultiplier = 2.5f;
+    public float lowJumpMultiplier = 2f;
+
     // Use this for initialization
     void Start () {
         coinCount = GameObject.FindGameObjectWithTag("CoinDisplay").GetComponent<CoinCount>();
         hearts = GameObject.FindGameObjectWithTag("HeartDisplay").GetComponent<HeartsGUI>();
+        rb = GetComponent<Rigidbody2D>();
 
         if (isLocalPlayer) {
             localPlayer = true;
@@ -54,15 +59,11 @@ public class PlayerController : NetworkBehaviour {
 			return;
 		}
 
-        if (Input.GetAxisRaw("Horizontal") != 0)
-        {
-            Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-            PlayerMove(input);
-        }
-
+        float dir = Input.GetAxis("Horizontal");
+        rb.velocity = new Vector2(dir * moveSpeed, rb.velocity.y);
 
         // Detecting if the player is midair
-        if(gameObject.GetComponent<Rigidbody2D>().velocity.y == 0)
+        if(rb.velocity.y == 0)
         {
             grounded = true;
         } else
@@ -71,25 +72,34 @@ public class PlayerController : NetworkBehaviour {
         }
     }
 
-    public void PlayerMove(Vector2 input)
+    void Update()
     {
-        velocity.y = 0;
-
-        float targetVelocityX = input.x * moveSpeed;
-        velocity.x = targetVelocityX;
-        transform.Translate(velocity * Time.deltaTime);
-
-        if(input.y > 0)
+        if(Input.GetKeyDown(KeyCode.Space))
         {
             PlayerJump();
         }
+
+        if (rb.velocity.y < 0)
+        {
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+        }
+        else if (rb.velocity.y > 0 && !Input.GetKey(KeyCode.Space))
+        {
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+
+        }
+    }
+
+    public void PlayerMove(int dir)
+    {
+        rb.velocity = new Vector2(dir * moveSpeed, rb.velocity.y);
     }
 
     public void PlayerJump()
     {
         if (grounded)
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(gameObject.GetComponent<Rigidbody2D>().velocity.x, jumpPower, 0), ForceMode2D.Impulse);
+            GetComponent<Rigidbody2D>().velocity = Vector2.up * jumpPower;
         }
     }
 

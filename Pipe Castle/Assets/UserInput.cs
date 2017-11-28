@@ -52,13 +52,11 @@ public class UserInput : MonoBehaviour {
     // Triggers that the user wants the player to go left
     void GoLeft()
     {
-        Vector2 input = new Vector2(-1, 0);
-        player.PlayerMove(input);
+        player.PlayerMove(-1);
     }
 
     void GoRight()
     {
-        Vector2 input = new Vector2(1, 0);
-        player.PlayerMove(input);
+        player.PlayerMove(1);
     }
 }
