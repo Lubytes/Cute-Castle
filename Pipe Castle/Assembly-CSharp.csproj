@@ -59,11 +59,18 @@
      <Compile Include="Assets\FlyBehaviour.cs" />
      <Compile Include="Assets\HeartsGUI.cs" />
      <Compile Include="Assets\ItemBox.cs" />
+     <Compile Include="Assets\MainScreenController.cs" />
      <Compile Include="Assets\MonsterDamageLogic.cs" />
+<<<<<<< HEAD
      <Compile Include="Assets\MonsterSight.cs" />
      <Compile Include="Assets\PlayerController.cs" />
      <Compile Include="Assets\SlimeBlueBehaviour.cs" />
      <Compile Include="Assets\SmallFrogBehaviour.cs" />
+=======
+     <Compile Include="Assets\PauseGame.cs" />
+     <Compile Include="Assets\PlayerController.cs" />
+     <Compile Include="Assets\ReturnIndex.cs" />
+>>>>>>> sarah-dev
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\CircleObject.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\GameObjectExtensions.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\GPUInstancing.cs" />
