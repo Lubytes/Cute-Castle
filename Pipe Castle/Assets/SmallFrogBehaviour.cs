@@ -16,8 +16,14 @@ public class SmallFrogBehaviour : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
+
         if (monstersight.iSeeYou) {
-            if (rb.velocity.y == 0) {
+            if (rb != null && rb.velocity.y == 0) {
                 if (player.transform.position.x < this.transform.position.x) {
                     rb.AddForce(new Vector3(-2, 3, 0), ForceMode2D.Impulse);
                 }
@@ -30,5 +36,16 @@ public class SmallFrogBehaviour : MonoBehaviour {
 
             }
         }
+    }
+
+    public void Hurt()
+    {
+        if (gameObject.GetComponent<Rigidbody2D>() != null)
+        {
+            Destroy(gameObject.GetComponent<Rigidbody2D>());
+        }
+        Destroy(gameObject.GetComponent<BoxCollider2D>());
+        gameObject.SendMessage("Death");
+
     }
 }

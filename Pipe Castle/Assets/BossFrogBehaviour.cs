@@ -18,16 +18,22 @@ public class BossFrogBehaviour : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
+
         if (monstersight.iSeeYou) {
-            if (rb.velocity.y == 0) {
+            if (rb != null && rb.velocity.y == 0) {
                 if (player.transform.position.x < this.transform.position.x) {
-                    rb.AddForce(new Vector3(-0.2F, 2, 0), ForceMode2D.Impulse);
+                    rb.AddForce(new Vector3(-0.3F, 2, 0), ForceMode2D.Impulse);
                 }
                 else if (player.transform.position.x > this.transform.position.x) {
-                    rb.AddForce(new Vector3(0.2F, 2, 0), ForceMode2D.Impulse);
+                    rb.AddForce(new Vector3(0.3F, 2, 0), ForceMode2D.Impulse);
                 }
                 else {
-                    rb.AddForce(new Vector3(0.2F, 2, 0), ForceMode2D.Impulse);
+                    rb.AddForce(new Vector3(0.3F, 2, 0), ForceMode2D.Impulse);
                 }
 
             }
@@ -35,10 +41,22 @@ public class BossFrogBehaviour : MonoBehaviour {
             spawnCounter += 1;
 
             if (spawnCounter > 150) {
-                GameObject foo = GameObject.Instantiate((GameObject)Resources.Load("smallFrog"));
-                foo.transform.position = gameObject.transform.position;
+                GameObject frog = GameObject.Instantiate((GameObject)Resources.Load("smallFrog"));
+                Vector2 offset = new Vector2(-2F, 3F);
+                frog.transform.position = new Vector3(gameObject.transform.position.x + offset.x, gameObject.transform.position.y + offset.y, 0F);
                 spawnCounter = 0;
             }
         }
+    }
+
+    public void Hurt()
+    {
+        if (gameObject.GetComponent<Rigidbody2D>() != null)
+        {
+            Destroy(gameObject.GetComponent<Rigidbody2D>());
+        }
+        Destroy(gameObject.GetComponent<BoxCollider2D>());
+        gameObject.SendMessage("Death");
+
     }
 }

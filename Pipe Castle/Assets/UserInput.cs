@@ -5,59 +5,60 @@ using UnityEngine;
 public class UserInput : MonoBehaviour {
 
     private PlayerController player;
-    public int moveDir;
 
 	// Use this for initialization
-	void Start () {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+	public void SetPlayer(GameObject thePlayer) {
+		player = thePlayer.GetComponent<PlayerController>();
 	}
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.touchCount == 1)
-        {
-            Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
-            if (hit.collider != null)
-            {
-                if (hit.collider.name.Equals("LeftTouch"))
-                {
-                    GoLeft();
-                    if (Input.touchCount > 1)
-                    {
-                        player.PlayerJump();
-                    }
-                }
+        if(player != null) {
 
-                if (hit.collider.name.Equals("RightTouch"))
+            if (Input.touchCount == 1)
+            {
+                Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
+                if (hit.collider != null)
                 {
-                    GoRight();
-                    if (Input.touchCount > 1)
+                    if (hit.collider.name.Equals("LeftTouch"))
                     {
-                        player.PlayerJump();
+                        GoLeft();
+                    }
+
+                    if (hit.collider.name.Equals("RightTouch"))
+                    {
+                        GoRight();
                     }
                 }
             }
-        }
 
-        if(Input.touchCount > 1)
-        {
-            player.PlayerJump();
+            if (Input.touchCount > 1)
+            {
+                player.PlayerJump();
+            }
+
+            if (Input.touchCount == 0)
+            {
+                Halt();
+            }
         }
-       
     }
 
     // Triggers that the user wants the player to go left
     void GoLeft()
     {
-        Vector2 input = new Vector2(-1, 0);
-        player.PlayerMove(input);
+        player.PlayerMove(-1.00f);
     }
 
     void GoRight()
     {
-        Vector2 input = new Vector2(1, 0);
-        player.PlayerMove(input);
+        player.PlayerMove(1.00f);
+    }
+
+    void Halt()
+    {
+        player.PlayerMove(0.00f);
     }
 }

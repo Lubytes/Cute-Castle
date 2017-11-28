@@ -48,7 +48,7 @@ public class HeartsGUI : MonoBehaviour {
 
     public void IncreaseHeart()
     {
-        if(numHearts <= 3)
+        if(numHearts < 3)
         {
             numHearts++;
             UpdateHearts();

@@ -16,7 +16,7 @@ public class WormBehaviour : MonoBehaviour {
 
     // Update is called once per frame
     void FixedUpdate() {
-        if (rb.velocity.y == 0) {
+        if (rb != null && rb.velocity.y == 0) {
             walkCount += 1;
 
             if (direction) {
@@ -31,6 +31,17 @@ public class WormBehaviour : MonoBehaviour {
                 walkCount = 0;
             }
         }
+
+    }
+
+    public void Hurt()
+    {
+        if(gameObject.GetComponent<Rigidbody2D>() != null)
+        {
+            Destroy(gameObject.GetComponent<Rigidbody2D>());
+        }
+        Destroy(gameObject.GetComponent<BoxCollider2D>());
+        gameObject.SendMessage("Death");
 
     }
 }

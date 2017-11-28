@@ -21,9 +21,25 @@ public class BeeBehaviour : MonoBehaviour
 
     // Update is called once per frame
     void FixedUpdate() {
+
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
+
         if (monstersight.iSeeYou) {
             this.transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position, 1.5F*Time.deltaTime);
         }
     }
 
+    public void Hurt()
+    {
+        if (gameObject.GetComponent<Rigidbody2D>() != null)
+        {
+            Destroy(gameObject.GetComponent<Rigidbody2D>());
+        }
+        Destroy(gameObject.GetComponent<BoxCollider2D>());
+        gameObject.SendMessage("Death");
+
+    }
 }

@@ -17,6 +17,12 @@ public class MonsterSight : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+
+        if(player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
+
         if (iSeeYou) {
             location = player.transform.position;
             //owner.SendMessage("Alert", location);
@@ -24,12 +30,12 @@ public class MonsterSight : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D col) {
-        if (col.gameObject.name == "Player") {
+        if (col.gameObject.tag == "Player") {
             iSeeYou = true;
         }
     }
     void OnTriggerExit2D(Collider2D col) {
-        if (col.gameObject.name == "Player") {
+        if (col.gameObject.tag == "Player") {
             iSeeYou = false;
         }
     }

@@ -7,6 +7,12 @@ TagManager:
   - Monster
   - Weapon
   - Power-Up
+  - CoinDisplay
+  - HeartDisplay
+  - Hitbox
+  - Health
+  - Coin
+  - Platform
   layers:
   - Default
   - TransparentFX

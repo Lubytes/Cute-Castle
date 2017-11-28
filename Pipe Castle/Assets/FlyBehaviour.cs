@@ -25,4 +25,14 @@ public class FlyBehaviour : MonoBehaviour {
         transform.position = tempPosition;
     }
 
+    public void Hurt()
+    {
+        if (gameObject.GetComponent<Rigidbody2D>() != null)
+        {
+            Destroy(gameObject.GetComponent<Rigidbody2D>());
+        }
+        Destroy(gameObject.GetComponent<BoxCollider2D>());
+        gameObject.SendMessage("Death");
+
+    }
 }
