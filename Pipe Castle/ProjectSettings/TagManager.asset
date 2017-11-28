@@ -10,6 +10,8 @@ TagManager:
   - CoinDisplay
   - HeartDisplay
   - Hitbox
+  - Health
+  - Coin
   layers:
   - Default
   - TransparentFX

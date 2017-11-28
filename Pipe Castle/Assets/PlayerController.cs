@@ -102,6 +102,14 @@ public class PlayerController : NetworkBehaviour {
         } else if (other.gameObject.tag == "Power-Up")
         {
             PowerUp(other.gameObject);
+        } else if (other.gameObject.tag == "Health")
+        {
+            hearts.IncreaseHeart();
+            Destroy(other.gameObject);
+        } else if (other.gameObject.tag == "Coin")
+        {
+            coinCount.IncrementCoin();
+            Destroy(other.gameObject);
         }
 
     }
@@ -126,15 +134,7 @@ public class PlayerController : NetworkBehaviour {
     // Handles Powerups
     private void PowerUp(GameObject powerUp)
     {
-        if(powerUp.name == "Health-Up" || powerUp.name == "Health-Up(Clone)")
-        {
-            hearts.IncreaseHeart();
-            Destroy(powerUp);
-        } else if(powerUp.name == "Coin" || powerUp.name == "Coin(Clone)")
-        {
-            coinCount.IncrementCoin();
-            Destroy(powerUp);
-        } else if(powerUp.name == "Yellow Key" || powerUp.name == "Yellow Key(Clone)")
+        if(powerUp.name == "Yellow Key" || powerUp.name == "Yellow Key(Clone)")
         {
             if(inHandsColour.Equals(""))
             {
