@@ -34,6 +34,12 @@ public class BeeBehaviour : MonoBehaviour
 
     public void Hurt()
     {
+        if (gameObject.GetComponent<Rigidbody2D>() != null)
+        {
+            Destroy(gameObject.GetComponent<Rigidbody2D>());
+        }
+        Destroy(gameObject.GetComponent<BoxCollider2D>());
         gameObject.SendMessage("Death");
+
     }
 }
