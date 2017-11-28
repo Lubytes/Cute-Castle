@@ -236,11 +236,14 @@
     <Compile Include="Assets\ItemBox.cs" />
     <Compile Include="Assets\LeverPuzzle.cs" />
     <Compile Include="Assets\LockBox.cs" />
+    <Compile Include="Assets\MainScreenController.cs" />
     <Compile Include="Assets\MonsterAnimator.cs" />
     <Compile Include="Assets\MonsterDamageLogic.cs" />
     <Compile Include="Assets\MonsterSight.cs" />
+    <Compile Include="Assets\PauseGame.cs" />
     <Compile Include="Assets\PlayerAnimations.cs" />
     <Compile Include="Assets\PlayerController.cs" />
+    <Compile Include="Assets\ReturnIndex.cs" />
     <Compile Include="Assets\SlimeBlueBehaviour.cs" />
     <Compile Include="Assets\SmallFrogBehaviour.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\CircleObject.cs" />
