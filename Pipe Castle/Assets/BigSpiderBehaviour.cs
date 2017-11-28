@@ -16,7 +16,7 @@ public class BigSpiderBehaviour : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (rb.velocity.y == 0) {
+        if (rb != null && rb.velocity.y == 0) {
             walkCount++;
 
             if (direction) {
@@ -36,6 +36,12 @@ public class BigSpiderBehaviour : MonoBehaviour {
 
     public void Hurt()
     {
+        if (gameObject.GetComponent<Rigidbody2D>() != null)
+        {
+            Destroy(gameObject.GetComponent<Rigidbody2D>());
+        }
+        Destroy(gameObject.GetComponent<BoxCollider2D>());
         gameObject.SendMessage("Death");
+
     }
 }
