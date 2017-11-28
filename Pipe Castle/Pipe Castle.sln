@@ -1,9 +1,9 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2017
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pipe Castle", "Pipe Castle.csproj", "{EC8A2433-6065-8B3C-C3A7-9A2DE252555B}"
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pipe Castle", "Assembly-CSharp.csproj", "{BDF70D69-3772-2B3B-2FF3-2D687A335FA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pipe Castle.Editor", "Pipe Castle.Editor.csproj", "{1DDDC70D-E575-9FFF-8799-B7024916B022}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pipe Castle", "Assembly-CSharp-Editor.csproj", "{3FBDFADE-9DAF-1E99-ACBC-F34470CB5FE7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,16 +11,19 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EC8A2433-6065-8B3C-C3A7-9A2DE252555B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EC8A2433-6065-8B3C-C3A7-9A2DE252555B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EC8A2433-6065-8B3C-C3A7-9A2DE252555B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EC8A2433-6065-8B3C-C3A7-9A2DE252555B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1DDDC70D-E575-9FFF-8799-B7024916B022}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1DDDC70D-E575-9FFF-8799-B7024916B022}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1DDDC70D-E575-9FFF-8799-B7024916B022}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1DDDC70D-E575-9FFF-8799-B7024916B022}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDF70D69-3772-2B3B-2FF3-2D687A335FA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDF70D69-3772-2B3B-2FF3-2D687A335FA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDF70D69-3772-2B3B-2FF3-2D687A335FA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDF70D69-3772-2B3B-2FF3-2D687A335FA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FBDFADE-9DAF-1E99-ACBC-F34470CB5FE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FBDFADE-9DAF-1E99-ACBC-F34470CB5FE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FBDFADE-9DAF-1E99-ACBC-F34470CB5FE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FBDFADE-9DAF-1E99-ACBC-F34470CB5FE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
 	EndGlobalSection
 EndGlobal

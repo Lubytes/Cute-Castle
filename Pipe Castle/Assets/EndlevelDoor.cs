@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Networking;
 
 public class EndlevelDoor : MonoBehaviour {
 
@@ -30,7 +31,7 @@ public class EndlevelDoor : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-            Destroy(other.gameObject);
+            // Destroy(other.gameObject);
             NextLevelCheck();
         }
     }
@@ -39,7 +40,7 @@ public class EndlevelDoor : MonoBehaviour {
     {
         if(CountPlayers() <= 1)
         {
-            SceneManager.LoadScene(destination, LoadSceneMode.Single);
+			NetworkManager.singleton.ServerChangeScene (destination);
         }
     }
 }
