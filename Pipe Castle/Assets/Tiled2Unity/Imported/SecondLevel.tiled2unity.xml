@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <!--Tiled2Unity generated xml data-->
 <!--Do not modify by hand-->
-<!--Last exported: 26/11/2017 3:44:13 PM-->
+<!--Last exported: 28/11/2017 3:29:44 PM-->
 <Tiled2Unity version="1.0.13.0">
   <AssignMaterial mesh="SecondLevel_mesh_0001" material="tiles_spritesheet" />
   <AssignMaterial mesh="SecondLevel_mesh_0002" material="sheet" />
@@ -202,28 +202,22 @@
             <GameObject name="tile_obj" mesh="SecondLevel_mesh_tile_0125" sortingLayerName="" sortingOrder="30" opacity="1" x="-0.5" y="0.5" />
           </GameObject>
         </GameObject>
-        <GameObject name="TileObject" x="36.73814" y="-40.6524277" rotation="0" scaleX="1" scaleY="1">
-          <TileObjectComponent tmx-object-id="87" tmx-object-name="" tmx-object-type="" tmx-object-x="2571.67" tmx-object-y="2845.67" tmx-object-width="70" tmx-object-height="70" tmx-object-rotation="0" tmx-tile-flip-horizontal="false" tmx-tile-flip-vertical="false" width="1" height="1" />
-          <GameObject name="TileObject" x="0.5" y="0.5" scaleX="1" scaleY="1">
-            <GameObject name="tile_obj" mesh="SecondLevel_mesh_tile_0125" sortingLayerName="" sortingOrder="31" opacity="1" x="-0.5" y="0.5" />
-          </GameObject>
-        </GameObject>
         <GameObject name="TileObject" x="38.64686" y="-41.0157166" rotation="1.19315" scaleX="1" scaleY="1">
           <TileObjectComponent tmx-object-id="10" tmx-object-name="" tmx-object-type="" tmx-object-x="2705.28" tmx-object-y="2871.1" tmx-object-width="70" tmx-object-height="70" tmx-object-rotation="1.19315" tmx-tile-flip-horizontal="false" tmx-tile-flip-vertical="false" width="1" height="1" />
           <GameObject name="TileObject" x="0.5" y="0.5" scaleX="1" scaleY="1">
-            <GameObject name="tile_obj" mesh="SecondLevel_mesh_tile_0125" sortingLayerName="" sortingOrder="32" opacity="1" x="-0.5" y="0.5" />
+            <GameObject name="tile_obj" mesh="SecondLevel_mesh_tile_0125" sortingLayerName="" sortingOrder="31" opacity="1" x="-0.5" y="0.5" />
           </GameObject>
         </GameObject>
         <GameObject name="TileObject" x="38.14757" y="-41.7761459" rotation="-45" scaleX="1" scaleY="1">
           <TileObjectComponent tmx-object-id="9" tmx-object-name="" tmx-object-type="" tmx-object-x="2670.33" tmx-object-y="2924.33" tmx-object-width="70" tmx-object-height="70" tmx-object-rotation="-45" tmx-tile-flip-horizontal="false" tmx-tile-flip-vertical="false" width="1" height="1" />
           <GameObject name="TileObject" x="0.5" y="0.5" scaleX="1" scaleY="1">
-            <GameObject name="tile_obj" mesh="SecondLevel_mesh_tile_0125" sortingLayerName="" sortingOrder="33" opacity="1" x="-0.5" y="0.5" />
+            <GameObject name="tile_obj" mesh="SecondLevel_mesh_tile_0125" sortingLayerName="" sortingOrder="32" opacity="1" x="-0.5" y="0.5" />
           </GameObject>
         </GameObject>
         <GameObject name="TileObject" x="37.4618568" y="-42.50957" rotation="-45" scaleX="1" scaleY="1">
           <TileObjectComponent tmx-object-id="8" tmx-object-name="" tmx-object-type="" tmx-object-x="2622.33" tmx-object-y="2975.67" tmx-object-width="70" tmx-object-height="70" tmx-object-rotation="-45" tmx-tile-flip-horizontal="false" tmx-tile-flip-vertical="false" width="1" height="1" />
           <GameObject name="TileObject" x="0.5" y="0.5" scaleX="1" scaleY="1">
-            <GameObject name="tile_obj" mesh="SecondLevel_mesh_tile_0125" sortingLayerName="" sortingOrder="34" opacity="1" x="-0.5" y="0.5" />
+            <GameObject name="tile_obj" mesh="SecondLevel_mesh_tile_0125" sortingLayerName="" sortingOrder="33" opacity="1" x="-0.5" y="0.5" />
           </GameObject>
         </GameObject>
       </GameObject>
@@ -317,10 +311,6 @@
           <RectangleObjectComponent tmx-object-id="16" tmx-object-name="" tmx-object-type="" tmx-object-x="2394.94" tmx-object-y="2726.31" tmx-object-width="206.41" tmx-object-height="23.3941" tmx-object-rotation="26.7011" />
           <BoxCollider2D width="2.94871426" height="0.334201425" />
         </GameObject>
-        <GameObject name="RectangleObject" x="36.819" y="-40.2475739" rotation="0" layer="">
-          <RectangleObjectComponent tmx-object-id="89" tmx-object-name="" tmx-object-type="" tmx-object-x="2577.33" tmx-object-y="2817.33" tmx-object-width="63.3333" tmx-object-height="27.3333" tmx-object-rotation="0" />
-          <BoxCollider2D width="0.904761434" height="0.39047572" />
-        </GameObject>
         <GameObject name="RectangleObject" x="38.6761436" y="-40.6571426" rotation="0" layer="">
           <RectangleObjectComponent tmx-object-id="104" tmx-object-name="" tmx-object-type="" tmx-object-x="2707.33" tmx-object-y="2846" tmx-object-width="67.3333" tmx-object-height="26" tmx-object-rotation="0" />
           <BoxCollider2D width="0.9619043" height="0.371428579" />
@@ -398,7 +388,7 @@
       </GameObject>
       <GameObject name="Floor" x="0.009523815" y="-0.009523815" z="0">
         <TileLayer offsetX="0.666667" offsetY="0.666667" />
-        <GameObject name="tiles_spritesheet" x="0" y="0" mesh="SecondLevel_mesh_0005" sortingLayerName="" sortingOrder="35" opacity="1" />
+        <GameObject name="tiles_spritesheet" x="0" y="0" mesh="SecondLevel_mesh_0005" sortingLayerName="" sortingOrder="34" opacity="1" />
       </GameObject>
     </GameObject>
   </Prefab>
