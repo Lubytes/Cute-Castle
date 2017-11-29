@@ -56,7 +56,8 @@ public class JoinGame : MonoBehaviour {
 			.Select (word => Array.IndexOf (translations, word).ToString ())
 			.ToArray();
 		string ip = String.Join (".", translated, 0, translated.Length);
-		Debug.Log ("IP is: " + ip);
+
+		Network.Connect (ip, 7777);
 	}
 	
 
