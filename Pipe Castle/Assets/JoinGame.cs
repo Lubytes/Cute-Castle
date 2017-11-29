@@ -57,7 +57,7 @@ public class JoinGame : MonoBehaviour {
 			.ToArray();
 		string ip = String.Join (".", translated, 0, translated.Length);
 
-		Network.Connect (ip, 7777);
+		NetworkManager.singleton.networkAddress = ip;
 	}
 	
 

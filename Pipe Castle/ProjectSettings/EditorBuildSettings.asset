@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/SamLab.unity
     guid: 90ee5e070ff8c4d5e8623cc2875499a1
   - enabled: 1
+    path: Assets/MainScreen.unity
+    guid: f5e2569eb8e284133b7a491f933dd554
+  - enabled: 1
     path: Assets/FirstLevel.unity
     guid: 4bcbbc93c592e0946b02d040d6fdda5f
   - enabled: 1
