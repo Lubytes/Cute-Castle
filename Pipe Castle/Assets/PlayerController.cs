@@ -204,7 +204,7 @@ public class PlayerController : NetworkBehaviour {
     // Triggers on death
     private void Death()
     {
-        Debug.Log("You Dead!");
+        SceneManager.LoadScene("YouLoseScreen");
     }
 
     // Handles Powerups

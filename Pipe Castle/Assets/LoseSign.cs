@@ -21,5 +21,14 @@ public class LoseSign : MonoBehaviour {
 
     }
 
+    public void Win() {
+        if (canvas.gameObject.activeInHierarchy == false) {
+            canvas.gameObject.SetActive(true);
+            // pause time
+            Time.timeScale = 0;
+
+        }
+    }
+
 }
 

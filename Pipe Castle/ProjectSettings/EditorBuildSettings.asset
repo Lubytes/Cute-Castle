@@ -35,3 +35,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/MainScreen.unity
     guid: f5e2569eb8e284133b7a491f933dd554
+  - enabled: 1
+    path: Assets/YouLoseScreen.unity
+    guid: 4751a8cb169d9f442b475c5f276c6230
