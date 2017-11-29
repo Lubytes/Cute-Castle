@@ -8,7 +8,8 @@ public class BossFrogBehaviour : MonoBehaviour {
     private GameObject player;
     private MonsterSight monstersight;
     private int spawnCounter;
-    public bool isKing, nextScreen = false;
+    public bool isKing = false;
+    private bool nextScreen = false;
     public float timer, maxTime;
 
     public GameObject deathEventTrigger;
@@ -25,10 +26,10 @@ public class BossFrogBehaviour : MonoBehaviour {
     void Update() {
 
         if(nextScreen) {
-            timer += Time.deltaTime;
-            if(timer >= maxTime) {
-                SceneManager.LoadScene("WinSign");
-            }
+            //timer += Time.deltaTime;
+            //if(timer >= maxTime) {
+            SceneManager.LoadScene("YouWinSign");
+            //}
         }
 
         if (player == null)
@@ -66,16 +67,21 @@ public class BossFrogBehaviour : MonoBehaviour {
         if(deathEventTrigger != null)
         {
             deathEventTrigger.SetActive(false);
-            if (isKing) {
-                nextScreen = true;
-            }
+            
         }
         if (gameObject.GetComponent<Rigidbody2D>() != null)
         {
             Destroy(gameObject.GetComponent<Rigidbody2D>());
         }
         Destroy(gameObject.GetComponent<BoxCollider2D>());
+
+        if (isKing) {
+            nextScreen = true;
+        }
+
         gameObject.SendMessage("Death");
+
+        
 
        
 
