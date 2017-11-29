@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
 using System;
+using UnityEngine.Networking;
 
 public class JoinGame : MonoBehaviour {
 
