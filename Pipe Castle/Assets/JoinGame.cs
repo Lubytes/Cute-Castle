@@ -5,9 +5,9 @@ using UnityEngine.UI;
 using System.Linq;
 using System;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class JoinGame : MonoBehaviour {
-
 	string[] translations = {
 		"shadow", "behir", "centaur", "baboon", "xorn", "demon", "partisan", "ettin",
 		"halberd", "blink", "identify", "haste", "otyugh", "squid", "aranea", "cloaker",
@@ -47,10 +47,25 @@ public class JoinGame : MonoBehaviour {
 	};
 
 	public InputField input;
+	bool isWaiting;
+	NetworkManager manager;
 
+	public void Update()
+	{
+		if (isWaiting && manager.IsClientConnected() && !ClientScene.ready) {
+			
+			ClientScene.Ready (manager.client.connection);
+			SceneManager.LoadScene (manager.onlineScene);
+			if (ClientScene.localPlayers.Count == 0) {
+				ClientScene.AddPlayer (0);
+			}
+		}
+	}
 
 	public void GetInput ()
 	{
+		manager = NetworkManager.singleton;
+
 		string gameName = input.text;
 		string[] components = gameName.Split (' ');
 		string[] translated = components
@@ -58,8 +73,11 @@ public class JoinGame : MonoBehaviour {
 			.ToArray();
 		string ip = String.Join (".", translated, 0, translated.Length);
 
-		NetworkManager.singleton.networkAddress = ip;
+		manager.networkAddress = ip;
+		manager.StartClient ();
+		isWaiting = true;
 	}
+
 	
 
 }

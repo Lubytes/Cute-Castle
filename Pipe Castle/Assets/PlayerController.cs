@@ -34,13 +34,18 @@ public class PlayerController : NetworkBehaviour {
     public float lowJumpMultiplier = 2f;
     private float oldYPos;
 
+	void Awake() {
+	}
+
     // Use this for initialization
     void Start () {
-        coinCount = GameObject.FindGameObjectWithTag("CoinDisplay").GetComponent<CoinCount>();
-        hearts = GameObject.FindGameObjectWithTag("HeartDisplay").GetComponent<HeartsGUI>();
-        rb = GetComponent<Rigidbody2D>();
-        oldYPos = transform.position.y;
-		DontDestroyOnLoad (this);
+		rb = GetComponent<Rigidbody2D>();
+		coinCount = GameObject.FindGameObjectWithTag("CoinDisplay").GetComponent<CoinCount>();
+		hearts = GameObject.FindGameObjectWithTag("HeartDisplay").GetComponent<HeartsGUI>();
+		oldYPos = transform.position.y;
+		DontDestroyOnLoad (gameObject);
+
+
 		SetupSpawning ();
 
         if (isLocalPlayer) {
