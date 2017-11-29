@@ -36,6 +36,7 @@ public class PlayerController : NetworkBehaviour {
 
     // Use this for initialization
     void Start () {
+		gameObject.SetActive (true);
         coinCount = GameObject.FindGameObjectWithTag("CoinDisplay").GetComponent<CoinCount>();
         hearts = GameObject.FindGameObjectWithTag("HeartDisplay").GetComponent<HeartsGUI>();
         rb = GetComponent<Rigidbody2D>();
