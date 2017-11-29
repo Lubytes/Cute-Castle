@@ -28,7 +28,7 @@ public class BossFrogBehaviour : MonoBehaviour {
         if(nextScreen) {
             //timer += Time.deltaTime;
             //if(timer >= maxTime) {
-            SceneManager.LoadScene("YouWinSign");
+            SceneManager.LoadScene("YouWinScreen");
             //}
         }
 
@@ -80,10 +80,6 @@ public class BossFrogBehaviour : MonoBehaviour {
         }
 
         gameObject.SendMessage("Death");
-
-        
-
-       
 
     }
 }
