@@ -8,11 +8,9 @@ public class EndlevelDoor : MonoBehaviour {
 
     public string destination;
 
-    private int numPlayersRemaining;
-
 	// Use this for initialization
 	void Start () {
-		
+
 	}
 	
 	// Update is called once per frame
@@ -31,14 +29,14 @@ public class EndlevelDoor : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-            // Destroy(other.gameObject);
+			other.gameObject.SetActive (false);
             NextLevelCheck();
         }
     }
 
     void NextLevelCheck()
     {
-        if(CountPlayers() <= 1)
+        if(CountPlayers() <= 0)
         {
 			NetworkManager.singleton.ServerChangeScene (destination);
         }

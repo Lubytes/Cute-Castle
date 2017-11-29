@@ -236,6 +236,7 @@
     <Compile Include="Assets\ItemBox.cs" />
     <Compile Include="Assets\LeverPuzzle.cs" />
     <Compile Include="Assets\LockBox.cs" />
+    <Compile Include="Assets\LoseSign.cs" />
     <Compile Include="Assets\MainScreenController.cs" />
     <Compile Include="Assets\MonsterAnimator.cs" />
     <Compile Include="Assets\MonsterDamageLogic.cs" />
@@ -268,6 +269,7 @@
     <Compile Include="Assets\TriggerScript.cs" />
     <Compile Include="Assets\UserInput.cs" />
     <Compile Include="Assets\WeaponScript.cs" />
+    <Compile Include="Assets\WinSign.cs" />
     <Compile Include="Assets\WormBehaviour.cs" />
   </ItemGroup>
   <ItemGroup>
