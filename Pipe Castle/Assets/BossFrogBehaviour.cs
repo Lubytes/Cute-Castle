@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BossFrogBehaviour : MonoBehaviour {
     public Rigidbody2D rb;
     private GameObject player;
     private MonsterSight monstersight;
     private int spawnCounter;
+    public bool isKing, nextScreen = false;
+    public float timer, maxTime;
 
     public GameObject deathEventTrigger;
 
@@ -20,6 +23,13 @@ public class BossFrogBehaviour : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+
+        if(nextScreen) {
+            timer += Time.deltaTime;
+            if(timer >= maxTime) {
+                SceneManager.LoadScene("WinSign");
+            }
+        }
 
         if (player == null)
         {
@@ -56,6 +66,9 @@ public class BossFrogBehaviour : MonoBehaviour {
         if(deathEventTrigger != null)
         {
             deathEventTrigger.SetActive(false);
+            if (isKing) {
+                nextScreen = true;
+            }
         }
         if (gameObject.GetComponent<Rigidbody2D>() != null)
         {
@@ -63,6 +76,8 @@ public class BossFrogBehaviour : MonoBehaviour {
         }
         Destroy(gameObject.GetComponent<BoxCollider2D>());
         gameObject.SendMessage("Death");
+
+       
 
     }
 }
