@@ -251,6 +251,124 @@ Prefab:
       propertyPath: m_LocalPosition.x
       value: 26.72
       objectReference: {fileID: 0}
+    - target: {fileID: 1832162103816370, guid: f42ba2e9b366e8c4ea802ed59a02b00c, type: 2}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976332215205260, guid: f42ba2e9b366e8c4ea802ed59a02b00c, type: 2}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1578129616648970, guid: f42ba2e9b366e8c4ea802ed59a02b00c, type: 2}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1906567566619628, guid: f42ba2e9b366e8c4ea802ed59a02b00c, type: 2}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1866369707582180, guid: f42ba2e9b366e8c4ea802ed59a02b00c, type: 2}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1101526806377572, guid: f42ba2e9b366e8c4ea802ed59a02b00c, type: 2}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1121117406486340, guid: f42ba2e9b366e8c4ea802ed59a02b00c, type: 2}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1765973428179442, guid: f42ba2e9b366e8c4ea802ed59a02b00c, type: 2}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1989565876832694, guid: f42ba2e9b366e8c4ea802ed59a02b00c, type: 2}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1490290269877088, guid: f42ba2e9b366e8c4ea802ed59a02b00c, type: 2}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1986299127630756, guid: f42ba2e9b366e8c4ea802ed59a02b00c, type: 2}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1829695617988642, guid: f42ba2e9b366e8c4ea802ed59a02b00c, type: 2}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1968657445046652, guid: f42ba2e9b366e8c4ea802ed59a02b00c, type: 2}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1937282988047286, guid: f42ba2e9b366e8c4ea802ed59a02b00c, type: 2}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1610244880376652, guid: f42ba2e9b366e8c4ea802ed59a02b00c, type: 2}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1574239839410772, guid: f42ba2e9b366e8c4ea802ed59a02b00c, type: 2}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1834631733865814, guid: f42ba2e9b366e8c4ea802ed59a02b00c, type: 2}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1834782063966374, guid: f42ba2e9b366e8c4ea802ed59a02b00c, type: 2}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1862483006407296, guid: f42ba2e9b366e8c4ea802ed59a02b00c, type: 2}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1538095182936024, guid: f42ba2e9b366e8c4ea802ed59a02b00c, type: 2}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1975789155534446, guid: f42ba2e9b366e8c4ea802ed59a02b00c, type: 2}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1831832436479716, guid: f42ba2e9b366e8c4ea802ed59a02b00c, type: 2}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281464932296696, guid: f42ba2e9b366e8c4ea802ed59a02b00c, type: 2}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1465902010573996, guid: f42ba2e9b366e8c4ea802ed59a02b00c, type: 2}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1219461791746144, guid: f42ba2e9b366e8c4ea802ed59a02b00c, type: 2}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876768097350208, guid: f42ba2e9b366e8c4ea802ed59a02b00c, type: 2}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1880329960293288, guid: f42ba2e9b366e8c4ea802ed59a02b00c, type: 2}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 61901265398038040, guid: f42ba2e9b366e8c4ea802ed59a02b00c,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 25.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 61901265398038040, guid: f42ba2e9b366e8c4ea802ed59a02b00c,
+        type: 2}
+      propertyPath: m_Offset.x
+      value: 11.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f42ba2e9b366e8c4ea802ed59a02b00c, type: 2}
   m_IsPrefabParent: 0
@@ -1390,12 +1508,12 @@ Prefab:
     - target: {fileID: 224000030493696258, guid: ae3e0372de11ff34a878b1b08365f18a,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 408.05
+      value: 546.05
       objectReference: {fileID: 0}
     - target: {fileID: 224000030493696258, guid: ae3e0372de11ff34a878b1b08365f18a,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 241.98
+      value: 308.48
       objectReference: {fileID: 0}
     - target: {fileID: 4560348276664470, guid: ae3e0372de11ff34a878b1b08365f18a, type: 2}
       propertyPath: m_RootOrder
