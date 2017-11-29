@@ -8,11 +8,12 @@ public class TiltingLever : MonoBehaviour {
     public Sprite player1, player2;
 
     private bool claimed;
-    private Quaternion localRotation; // 
-    public float speed;
     // Use this for initialization
     void Start () {
-        localRotation = transform.rotation;
+        if (!Input.gyro.enabled)
+        {
+            Input.gyro.enabled = true;
+        }
     }
 	
 	// Update is called once per frame
@@ -20,12 +21,14 @@ public class TiltingLever : MonoBehaviour {
 
         if(claimed)
         {
-            // first update the current rotation angles with input from acceleration axis
-            localRotation.y += Input.acceleration.x * speed;
-            localRotation.x += Input.acceleration.y * speed;
+            Vector3 previousEulerAngles = transform.eulerAngles;
+            Vector3 gyroInput = Input.gyro.rotationRateUnbiased;
 
-            // then rotate this object accordingly to the new angle
-            transform.rotation = localRotation;
+            Vector3 targetEulerAngles = (previousEulerAngles + gyroInput * Time.deltaTime * Mathf.Rad2Deg);
+            targetEulerAngles.x = 0.0f; // Only this line has been added
+            targetEulerAngles.y = 0.0f;
+
+            transform.eulerAngles = targetEulerAngles;
         }
 
     }

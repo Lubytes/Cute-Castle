@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 /*
  *  Michael Altair 
@@ -11,6 +12,7 @@ using UnityEngine.Networking;
 public class PlayerController : NetworkBehaviour {
 
     public bool grounded;
+    public bool onPlat;
 
     public float moveSpeed;
     public float jumpPower;
@@ -33,12 +35,17 @@ public class PlayerController : NetworkBehaviour {
     public float lowJumpMultiplier = 2f;
     private float oldYPos;
 
+    private bool immortal;
+    private float timer, maxTime = 0.5f;
+
     // Use this for initialization
     void Start () {
         coinCount = GameObject.FindGameObjectWithTag("CoinDisplay").GetComponent<CoinCount>();
         hearts = GameObject.FindGameObjectWithTag("HeartDisplay").GetComponent<HeartsGUI>();
         rb = GetComponent<Rigidbody2D>();
         oldYPos = transform.position.y;
+		DontDestroyOnLoad (this);
+		SetupSpawning ();
 
         if (isLocalPlayer) {
             localPlayer = true;
@@ -51,24 +58,31 @@ public class PlayerController : NetworkBehaviour {
             localPlayer = false;
 		}
     }
-	
-	// Update is called once per frame
-	void FixedUpdate () {
-		if (!isLocalPlayer)
-		{
-			return;
-		}
-
-        oldYPos = transform.position.y;
-        float dir = Input.GetAxis("Horizontal");
-        if(dir != 0)
-        {
-            rb.velocity = new Vector2(dir * moveSpeed, rb.velocity.y);
-        }
-    }
 
     void Update()
     {
+        if (immortal)
+        {
+            timer += Time.deltaTime;
+
+            float blinky = timer;
+            // Causes the player to rapidly blink red
+            if(blinky%0.1 <= 0.05)
+            {
+                GoRed();
+            } else
+            {
+                GoNormal();
+            }
+            
+            if (timer >= maxTime)
+            {
+                timer = 0f;
+                immortal = false;
+                GoNormal();
+            }
+        }
+
         if (!isLocalPlayer)
         {
             return;
@@ -84,15 +98,40 @@ public class PlayerController : NetworkBehaviour {
             rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
         }
 
-        if (transform.position.y - oldYPos <= 0.001f && transform.position.y - oldYPos >= -0.001f)
+        if (transform.position.y - oldYPos <= 0.0001f && transform.position.y - oldYPos >= -0.0001f)
         {
             grounded = true;
         }
-        else
+        else if(!onPlat)
         {
             grounded = false;
         }
+    }
 
+    // Update is called once per frame
+    void FixedUpdate () {
+		if (!isLocalPlayer)
+		{
+			return;
+		}
+
+        oldYPos = transform.position.y;
+        float dir = Input.GetAxis("Horizontal");
+        if(dir != 0)
+        {
+            rb.velocity = new Vector2(dir * moveSpeed, rb.velocity.y);
+        }
+    }
+
+    // Shades the user's sprite red
+    public void GoRed()
+    {
+        GetComponent<SpriteRenderer>().color = Color.red;
+    }
+    // Returns to normal sprite colour
+    public void GoNormal()
+    {
+        GetComponent<SpriteRenderer>().color = Color.white;
     }
 
     public void PlayerMove(float dir)
@@ -135,17 +174,29 @@ public class PlayerController : NetworkBehaviour {
         if (other.gameObject.tag == "Platform")
         {
             grounded = true;
+            onPlat = true;
+        }
+    }
+    void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Platform")
+        {
+            onPlat = false;
         }
     }
 
     // Triggers when the player is injured
     public void Hurt()
     {
-        Handheld.Vibrate();
-        hearts.DecreaseHeart();
-        if(hearts.numHearts == 0)
+        if(!immortal)
         {
-            Death();
+            immortal = true;
+            Handheld.Vibrate();
+            hearts.DecreaseHeart();
+            if (hearts.numHearts == 0)
+            {
+                Death();
+            }
         }
     }
 
@@ -188,6 +239,22 @@ public class PlayerController : NetworkBehaviour {
             }
         }
     }
+
+	void SetupSpawning()
+	{
+		SceneManager.sceneLoaded += SceneLoaded;
+	}
+
+	void SceneLoaded(Scene _scene, LoadSceneMode _mode)
+	{
+		GoToSpawn ();
+		Start ();
+	}
+
+	void GoToSpawn()
+	{
+		gameObject.transform.position = GameObject.Find ("SpawnPosition").transform.position;
+	}
 
     // Makes the player recoil
     void Recoil(Collision2D other)
