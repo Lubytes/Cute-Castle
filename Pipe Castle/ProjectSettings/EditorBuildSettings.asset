@@ -29,3 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/SixthLevel.unity
     guid: 69d605f676172b54b92fd89ef2dc72bb
+  - enabled: 1
+    path: Assets/YouWinScreen.unity
+    guid: 873578e6417adf14d952fcf1d49fa998
+  - enabled: 1
+    path: Assets/MainScreen.unity
+    guid: f5e2569eb8e284133b7a491f933dd554
