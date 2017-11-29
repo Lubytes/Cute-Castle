@@ -17,3 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/SecondLevel.unity
     guid: 7d418c08f223cc24cbb0cf15a4d3add7
+  - enabled: 1
+    path: Assets/SettingsScreen.unity
+    guid: 6a93dc848bcf746fca5a5a674e2d8dac
+  - enabled: 1
+    path: Assets/InstructionScreen.unity
+    guid: 539a08b498ea24c9f89c1e6c3d907035

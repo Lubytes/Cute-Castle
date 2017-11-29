@@ -11,7 +11,6 @@ public class PauseGame : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		//using escape key for now until toggle is put in game screen.
 		if(Input.GetKeyDown(KeyCode.Escape)){
 			Pause ();
 		}
