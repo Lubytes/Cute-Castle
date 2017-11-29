@@ -8,8 +8,6 @@ public class EndlevelDoor : MonoBehaviour {
 
     public string destination;
 
-    private int numPlayersExited;
-
 	// Use this for initialization
 	void Start () {
 
@@ -31,7 +29,6 @@ public class EndlevelDoor : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-			numPlayersExited += 1;
 			other.gameObject.SetActive (false);
             NextLevelCheck();
         }
@@ -39,7 +36,7 @@ public class EndlevelDoor : MonoBehaviour {
 
     void NextLevelCheck()
     {
-        if(CountPlayers() - numPlayersExited <= 0)
+        if(CountPlayers() <= 0)
         {
 			NetworkManager.singleton.ServerChangeScene (destination);
         }
