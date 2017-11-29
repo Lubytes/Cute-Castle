@@ -13,7 +13,7 @@ public class ClickGui : MonoBehaviour {
 	// }
 
 
-	public void JoinGame() {
+	public void PopupWindow() {
 
 		if(secondCanvas.gameObject.activeInHierarchy == false){
 		
