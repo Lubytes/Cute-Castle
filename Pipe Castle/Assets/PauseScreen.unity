@@ -151,6 +151,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224763755495706288, guid: ae3e0372de11ff34a878b1b08365f18a,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 801.67334
+      objectReference: {fileID: 0}
+    - target: {fileID: 224763755495706288, guid: ae3e0372de11ff34a878b1b08365f18a,
+        type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -33.237976
+      objectReference: {fileID: 0}
     - target: {fileID: 224000030493696258, guid: ae3e0372de11ff34a878b1b08365f18a,
         type: 2}
       propertyPath: m_LocalPosition.x
