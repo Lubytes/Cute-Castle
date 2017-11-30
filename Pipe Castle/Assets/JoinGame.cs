@@ -55,8 +55,7 @@ public class JoinGame : MonoBehaviour {
 		if (isWaiting && manager.IsClientConnected() && !ClientScene.ready) {
 			if (ClientScene.localPlayers.Count == 0) {
                 SceneManager.LoadScene (manager.onlineScene);
-                ClientScene.Ready (manager.client.connection);
-				ClientScene.AddPlayer (0);
+                // ClientScene.Ready (manager.client.connection);
 			}
 		}
 	}
