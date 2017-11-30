@@ -14,7 +14,8 @@ public class MainScreenController : MonoBehaviour {
 
 	public void NewGame(){
 		NetworkManager.singleton.StartHost ();
-	}
+        PlayerPrefs.SetInt("Coins", 0);
+    }
 
 	public void QuitGame(){
 	
