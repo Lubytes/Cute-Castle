@@ -10,11 +10,8 @@ public class BeeBehaviour : MonoBehaviour
     private GameObject player;
     private MonsterSight monstersight;
 
-    private Vector2 velocity;
-
     // Use this for initialization
     void Start() {
-        velocity = transform.position;
         player = GameObject.FindGameObjectWithTag("Player");
         monstersight = gameObject.GetComponent<MonsterSight>();
     }
