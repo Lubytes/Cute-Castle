@@ -33,7 +33,7 @@ public class JoinGame : MonoBehaviour {
 		"spetum", "angel", "medusa", "shatter", "poison", "raven", "fungus", "girallon",
 		"aboleth", "darkness", "ooze", "wish", "weasel", "hyena", "polearm", "eladrin",
 		"boar", "club", "gnome", "horse", "kobold", "sending", "dagger", "nymph", "dog",
-		"beholder", "lizard", "thoqqua", "lammasu", "mimic", "command", "seeming", "erase",
+		"beholder", "lizard", "mimic", "lammasu", "thoqqua", "command", "seeming", "erase",
 		"sympathy", "giant", "dictum", "ankheg", "dryad", "mislead", "griffon", "bless",
 		"treant", "mace", "azer", "howler", "hag", "snare", "augury", "magmin", "web",
 		"grick", "scourge", "formian", "porpoise", "rat", "sling", "bison", "remorhaz",
@@ -55,7 +55,6 @@ public class JoinGame : MonoBehaviour {
 		if (isWaiting && manager.IsClientConnected() && !ClientScene.ready) {
 			if (ClientScene.localPlayers.Count == 0) {
                 SceneManager.LoadScene (manager.onlineScene);
-                // ClientScene.Ready (manager.client.connection);
 			}
 		}
 	}
