@@ -38,13 +38,15 @@ public class PlayerController : NetworkBehaviour {
 	private bool immortal;
 	private float timer, maxTime = 0.5f;
 
+    private bool isChangingLevels = false;
+
 
     // Use this for initialization
     void Start () {
-        RefreshBindings();
 		gameObject.SetActive (true);
 		DontDestroyOnLoad (gameObject);
         SetupSpawning();
+        RefreshBindings();
 
         if (isLocalPlayer) {
 			GetComponent<SpriteRenderer> ().sprite = localPlayerSprite;
@@ -251,6 +253,7 @@ public class PlayerController : NetworkBehaviour {
 
 	void SceneChanged(Scene _from, Scene _to)
 	{
+        isChangingLevels = true;
         if (isLocalPlayer)
         {
             GoToSpawn ();
