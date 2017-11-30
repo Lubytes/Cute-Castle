@@ -29,15 +29,6 @@ public class EndlevelDoor : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-			other.gameObject.SetActive (false);
-            NextLevelCheck();
-        }
-    }
-
-    void NextLevelCheck()
-    {
-        if(CountPlayers() <= 0)
-        {
 			NetworkManager.singleton.ServerChangeScene (destination);
         }
     }
