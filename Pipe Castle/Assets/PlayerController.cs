@@ -67,8 +67,20 @@ public class PlayerController : NetworkBehaviour {
         }
     }
 
-    void Update()
-    {
+    // Update is called once per frame
+    void FixedUpdate () {
+		if (!isLocalPlayer)
+		{
+			return;
+		}
+
+        oldYPos = transform.position.y;
+        float dir = Input.GetAxis("Horizontal");
+        if(dir != 0)
+        {
+            rb.velocity = new Vector2(dir * moveSpeed, rb.velocity.y);
+        }
+
         if (immortal)
         {
             timer += Time.deltaTime;
@@ -91,11 +103,6 @@ public class PlayerController : NetworkBehaviour {
             }
         }
 
-        if (!isLocalPlayer)
-        {
-            return;
-        }
-
         if (Input.GetKeyDown(KeyCode.Space))
         {
             PlayerJump();
@@ -113,21 +120,6 @@ public class PlayerController : NetworkBehaviour {
         else if(!onPlat)
         {
             grounded = false;
-        }
-    }
-
-    // Update is called once per frame
-    void FixedUpdate () {
-		if (!isLocalPlayer)
-		{
-			return;
-		}
-
-        oldYPos = transform.position.y;
-        float dir = Input.GetAxis("Horizontal");
-        if(dir != 0)
-        {
-            rb.velocity = new Vector2(dir * moveSpeed, rb.velocity.y);
         }
     }
 
