@@ -261,14 +261,7 @@ public class PlayerController : NetworkBehaviour {
 
 	void GoToSpawn()
 	{
-        GameObject spawn;
-        if (isServer)
-        {
-            spawn = GameObject.Find("SpawnPosition");
-        } else
-        {
-            spawn = GameObject.Find("ClientSpawn");
-        }
+        GameObject spawn = GameObject.Find("SpawnPosition");
         gameObject.transform.position = spawn.transform.position;
 	}
 
