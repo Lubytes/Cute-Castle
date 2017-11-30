@@ -46,7 +46,10 @@ public class RoomNameScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Debug.Log ("what");
+		if (Network.isClient)
+		{
+			gameObject.SetActive(false);
+		}
 		string ip = Network.player.ipAddress;
 		string name = String.Join(" ", ip.Split ('.').Select (x => translations [Convert.ToInt32(x)]).ToArray());
 		gameObject.GetComponent<Text> ().text = "Room name: " + name;
