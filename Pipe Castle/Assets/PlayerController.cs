@@ -250,10 +250,6 @@ public class PlayerController : NetworkBehaviour {
     // Handles Powerups
     private void PowerUp(GameObject powerUp)
     {
-        if (!isLocalPlayer)
-        {
-            return;
-        }
         if(powerUp.name == "Yellow Key" || powerUp.name == "Yellow Key(Clone)")
         {
             if(inHandsColour.Equals(""))
