@@ -35,8 +35,13 @@ public class PlayerController : NetworkBehaviour {
     public float lowJumpMultiplier = 2f;
     private float oldYPos;
 
+	private bool immortal;
+	private float timer, maxTime = 0.5f;
+
+
     // Use this for initialization
     void Start () {
+		gameObject.SetActive (true);
 		rb = GetComponent<Rigidbody2D>();
 		coinCount = GameObject.FindGameObjectWithTag("CoinDisplay").GetComponent<CoinCount>();
 		hearts = GameObject.FindGameObjectWithTag("HeartDisplay").GetComponent<HeartsGUI>();
@@ -185,6 +190,7 @@ public class PlayerController : NetworkBehaviour {
     // Triggers when the player is injured
     public void Hurt()
     {
+		return; // FIXME
         if(!immortal)
         {
             immortal = true;
@@ -239,7 +245,7 @@ public class PlayerController : NetworkBehaviour {
 
 	void SetupSpawning()
 	{
-		SceneManager.sceneLoaded += SceneLoaded;
+		SceneManager.activeSceneChanged += SceneLoaded;
 	}
 
 	void SceneLoaded(Scene _scene, LoadSceneMode _mode)
