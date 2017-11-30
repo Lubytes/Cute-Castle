@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4994285248963752}
   - component: {fileID: 61546903391085324}
   - component: {fileID: 114112336313804170}
+  - component: {fileID: 114618761366092130}
   m_Layer: 0
   m_Name: End Level Doorway
   m_TagString: Untagged
@@ -78,3 +79,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destination: SamLab
+--- !u!114 &114618761366092130
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1863367270421702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 25
+    i1: 99
+    i2: 198
+    i3: 138
+    i4: 85
+    i5: 230
+    i6: 27
+    i7: 228
+    i8: 169
+    i9: 115
+    i10: 16
+    i11: 133
+    i12: 136
+    i13: 133
+    i14: 28
+    i15: 183
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
