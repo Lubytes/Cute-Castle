@@ -76,7 +76,7 @@ public class PlayerController : NetworkBehaviour {
         timeSinceLevel += Time.deltaTime;
 
         // The hack to end all hacks
-       if (timeSinceLevel < 0.5)
+       if (timeSinceLevel < 0.1)
         {
             GoToSpawn();
         }
