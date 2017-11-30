@@ -13,8 +13,7 @@ public class LockBox : MonoBehaviour {
             PlayerController playerScript = other.GetComponent<PlayerController>();
             if (playerScript.GetInHandsColour().Equals(colour))
             {
-                playerScript.DropObject();
-                Destroy(gameObject);
+                playerScript.DropObject(gameObject);
             }
         }
     }

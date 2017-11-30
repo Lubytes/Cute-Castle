@@ -340,6 +340,10 @@ MonoBehaviour:
   remotePlayerSprite: {fileID: 21300000, guid: 8ee801b887213544e95db36d9bb3ca50, type: 3}
   player: {fileID: 0}
   heldRenderer: {fileID: 212543162654933752}
+  blueKeySprite: {fileID: 21300000, guid: 4a92a5800ef28d44094781bf93ecfbdc, type: 3}
+  redKeySprite: {fileID: 21300000, guid: eaa4e1835551a7e49afb10a42cd77573, type: 3}
+  greenKeySprite: {fileID: 21300000, guid: 0850f4c62b02ef54e85e7d333064a4ad, type: 3}
+  yellowKeySprite: {fileID: 21300000, guid: 9b2fe60b48a72354285cd66eb61f6b07, type: 3}
   fallMultiplier: 2.5
   lowJumpMultiplier: 2
 --- !u!212 &212543162654933752

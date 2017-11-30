@@ -29,7 +29,7 @@ public class PlayerController : NetworkBehaviour {
     public SpriteRenderer heldRenderer;
 
     [SyncVar(hook = "KeyChanged")]
-    private string inHandsColour = "";
+    public string inHandsColour = "";
 
     public Sprite blueKeySprite;
     public Sprite redKeySprite;
@@ -72,6 +72,18 @@ public class PlayerController : NetworkBehaviour {
 			GameObject.Find("UserInput").GetComponent<UserInput> ().SetPlayer(gameObject);
         }
     }
+
+	void Update()
+	{
+		if (transform.position.y - oldYPos <= 0.0001f && transform.position.y - oldYPos >= -0.0001f)
+		{
+			grounded = true;
+		}
+		else if(!onPlat)
+		{
+			grounded = false;
+		}
+	}
 
     // Update is called once per frame
     void FixedUpdate () {
@@ -126,28 +138,20 @@ public class PlayerController : NetworkBehaviour {
             rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
         }
 
-        if (transform.position.y - oldYPos <= 0.0001f && transform.position.y - oldYPos >= -0.0001f)
-        {
-            grounded = true;
-        }
-        else if(!onPlat)
-        {
-            grounded = false;
-        }
     }
     
-    public void KeyChanged()
+	public void KeyChanged(string newColour)
     {
-        if (inHandsColour.Equals("Red"))
+        if (newColour.Equals("Red"))
         {
             heldRenderer.sprite = redKeySprite;
-        } else if (inHandsColour.Equals("Blue"))
+        } else if (newColour.Equals("Blue"))
         {
             heldRenderer.sprite = blueKeySprite;
-        } else if (inHandsColour.Equals("Green"))
+        } else if (newColour.Equals("Green"))
         {
             heldRenderer.sprite = greenKeySprite;
-        } else if (inHandsColour.Equals("Yellow"))
+        } else if (newColour.Equals("Yellow"))
         {
             heldRenderer.sprite = yellowKeySprite;
         }
@@ -225,7 +229,6 @@ public class PlayerController : NetworkBehaviour {
     // Triggers when the player is injured
     public void Hurt()
     {
-		return; // FIXME
         if(!immortal)
         {
             immortal = true;
@@ -255,24 +258,32 @@ public class PlayerController : NetworkBehaviour {
         {
             if(inHandsColour.Equals(""))
             {
+				Destroy (powerUp);
+		
                 inHandsColour = "Yellow";
             }
         } else if (powerUp.name == "Blue Key" || powerUp.name == "Blue Key(Clone)")
         {
             if (inHandsColour.Equals(""))
             {
+				Destroy (powerUp);
+
                 inHandsColour = "Blue";
             }
         } else if (powerUp.name == "Red Key" || powerUp.name == "Red Key(Clone)")
         {
             if (inHandsColour.Equals(""))
             {
+				Destroy (powerUp);
+
                 inHandsColour = "Red";
             }
         } else if (powerUp.name == "Green Key" || powerUp.name == "Green Key(Clone)")
         {
             if (inHandsColour.Equals(""))
             {
+				Destroy (powerUp);
+
                 inHandsColour = "Green";
             }
         }
@@ -330,11 +341,18 @@ public class PlayerController : NetworkBehaviour {
     {
     }
 
-    public void DropObject()
+	public void DropObject(GameObject box)
     {
         heldRenderer.sprite = null;
         inHandsColour = "";
+		CmdOpenBox (box.name);
     }
+
+	[Command]
+	void CmdOpenBox(string name)
+	{
+		Destroy (GameObject.Find (name));
+	}
 
     public string GetInHandsColour()
     {
