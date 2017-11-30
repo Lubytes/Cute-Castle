@@ -156,14 +156,17 @@ public class PlayerController : NetworkBehaviour {
         {
             Recoil(other);
             Hurt();
-        } else if (other.gameObject.tag == "Power-Up")
+        }
+        else if (other.gameObject.tag == "Power-Up")
         {
             PowerUp(other.gameObject);
-        } else if (other.gameObject.tag == "Health")
+        }
+        else if (other.gameObject.tag == "Health")
         {
             hearts.IncreaseHeart();
             Destroy(other.gameObject);
-        } else if (other.gameObject.tag == "Coin")
+        }
+        else if (other.gameObject.tag == "Coin")
         {
             coinCount.IncrementCoin();
             Destroy(other.gameObject);
@@ -245,10 +248,10 @@ public class PlayerController : NetworkBehaviour {
 
 	void SetupSpawning()
 	{
-		SceneManager.activeSceneChanged += SceneLoaded;
+		SceneManager.activeSceneChanged += SceneChanged;
 	}
 
-	void SceneLoaded(Scene _from, Scene _to)
+	void SceneChanged(Scene _from, Scene _to)
 	{
 		GoToSpawn ();
 		Start ();
