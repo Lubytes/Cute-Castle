@@ -47,7 +47,6 @@ public class PlayerController : NetworkBehaviour {
 		DontDestroyOnLoad (gameObject);
         SetupSpawning();
         RefreshBindings();
-        GetComponent<NetworkIdentity>().localPlayerAuthority = isLocalPlayer;
 
         if (isLocalPlayer) {
 			GetComponent<SpriteRenderer> ().sprite = localPlayerSprite;
@@ -265,7 +264,7 @@ public class PlayerController : NetworkBehaviour {
 
 	void GoToSpawn()
 	{
-        GameObject spawn = GameObject.Find("SpawnPosition");
+        GameObject spawn = GameObject.FindGameObjectWithTag("PlayerSPawn");
         gameObject.transform.position = spawn.transform.position;
 	}
 
