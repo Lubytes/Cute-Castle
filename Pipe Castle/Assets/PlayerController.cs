@@ -47,6 +47,7 @@ public class PlayerController : NetworkBehaviour {
 		DontDestroyOnLoad (gameObject);
         SetupSpawning();
         RefreshBindings();
+        GetComponent<NetworkIdentity>().localPlayerAuthority = isLocalPlayer;
 
         if (isLocalPlayer) {
 			GetComponent<SpriteRenderer> ().sprite = localPlayerSprite;
