@@ -41,24 +41,30 @@ public class PlayerController : NetworkBehaviour {
 
     // Use this for initialization
     void Start () {
+        RefreshBindings();
 		gameObject.SetActive (true);
-		rb = GetComponent<Rigidbody2D>();
-		coinCount = GameObject.FindGameObjectWithTag("CoinDisplay").GetComponent<CoinCount>();
-		hearts = GameObject.FindGameObjectWithTag("HeartDisplay").GetComponent<HeartsGUI>();
-		oldYPos = transform.position.y;
 		DontDestroyOnLoad (gameObject);
-		SetupSpawning ();
+        SetupSpawning();
 
         if (isLocalPlayer) {
-            localPlayer = true;
 			GetComponent<SpriteRenderer> ().sprite = localPlayerSprite;
-			Camera.main.GetComponent<CameraAI> ().SetTarget (gameObject);
-			GameObject.Find("UserInput").GetComponent<UserInput> ().SetPlayer(gameObject);
             gameObject.GetComponent<Collider2D>().enabled = true;
 		} else {
 			GetComponent<SpriteRenderer> ().sprite = remotePlayerSprite;
-            localPlayer = false;
 		}
+    }
+
+    void RefreshBindings()
+    {
+		coinCount = GameObject.FindGameObjectWithTag("CoinDisplay").GetComponent<CoinCount>();
+		hearts = GameObject.FindGameObjectWithTag("HeartDisplay").GetComponent<HeartsGUI>();
+		rb = GetComponent<Rigidbody2D>();
+		oldYPos = transform.position.y;
+        if (isLocalPlayer)
+        {
+			Camera.main.GetComponent<CameraAI> ().SetTarget (gameObject);
+			GameObject.Find("UserInput").GetComponent<UserInput> ().SetPlayer(gameObject);
+        }
     }
 
     void Update()
@@ -253,8 +259,12 @@ public class PlayerController : NetworkBehaviour {
 
 	void SceneChanged(Scene _from, Scene _to)
 	{
-		GoToSpawn ();
-		Start ();
+        if (isLocalPlayer)
+        {
+            GoToSpawn ();
+        }
+        gameObject.SetActive(true);
+        RefreshBindings();
 	}
 
 	void GoToSpawn()
@@ -293,6 +303,7 @@ public class PlayerController : NetworkBehaviour {
         heldRenderer.sprite = heldObject.GetComponent<SpriteRenderer>().sprite;
         Destroy(heldObject);
     }
+
     public void DropObject()
     {
         heldRenderer.sprite = null;

@@ -19,7 +19,7 @@ public class PlayerAnimations : MonoBehaviour {
         oldYPos = transform.position.y;
         anim = gameObject.GetComponent<Animator>();
 
-        if(gameObject.GetComponent<PlayerController>().localPlayer)
+        if(gameObject.GetComponent<PlayerController>().isLocalPlayer)
         {
             anim.runtimeAnimatorController = p1Anim;
         } else
