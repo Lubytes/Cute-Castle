@@ -248,7 +248,7 @@ public class PlayerController : NetworkBehaviour {
 		SceneManager.activeSceneChanged += SceneLoaded;
 	}
 
-	void SceneLoaded(Scene _scene, LoadSceneMode _mode)
+	void SceneLoaded(Scene _from, Scene _to)
 	{
 		GoToSpawn ();
 		Start ();
