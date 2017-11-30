@@ -269,7 +269,15 @@ public class PlayerController : NetworkBehaviour {
 
 	void GoToSpawn()
 	{
-		gameObject.transform.position = GameObject.Find ("SpawnPosition").transform.position;
+        GameObject spawn;
+        if (isServer)
+        {
+            spawn = GameObject.Find("SpawnPosition");
+        } else
+        {
+            spawn = GameObject.Find("ClientSpawn");
+        }
+        gameObject.transform.position = spawn.transform.position;
 	}
 
     // Makes the player recoil
