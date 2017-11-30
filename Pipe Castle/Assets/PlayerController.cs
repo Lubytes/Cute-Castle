@@ -37,9 +37,7 @@ public class PlayerController : NetworkBehaviour {
 
 	private bool immortal;
 	private float timer, maxTime = 0.5f;
-
-    private bool isChangingLevels = false;
-
+    private float timeSinceLevel = 0;
 
     // Use this for initialization
     void Start () {
@@ -75,6 +73,18 @@ public class PlayerController : NetworkBehaviour {
 		{
 			return;
 		}
+        timeSinceLevel += Time.deltaTime;
+
+        // The hack to end all hacks
+       if (timeSinceLevel < 0.5)
+        {
+            GoToSpawn();
+        }
+
+        if (transform.position.x > 1)
+        {
+            transform.position = new Vector3(-24, -8);
+        }
 
         oldYPos = transform.position.y;
         float dir = Input.GetAxis("Horizontal");
@@ -253,7 +263,7 @@ public class PlayerController : NetworkBehaviour {
 
 	void SceneChanged(Scene _from, Scene _to)
 	{
-        isChangingLevels = true;
+        timeSinceLevel = 0;
         if (isLocalPlayer)
         {
             GoToSpawn ();
@@ -264,7 +274,7 @@ public class PlayerController : NetworkBehaviour {
 
 	void GoToSpawn()
 	{
-        GameObject spawn = GameObject.FindGameObjectWithTag("PlayerSPawn");
+        GameObject spawn = GameObject.FindGameObjectWithTag("PlayerSpawn");
         gameObject.transform.position = spawn.transform.position;
 	}
 
