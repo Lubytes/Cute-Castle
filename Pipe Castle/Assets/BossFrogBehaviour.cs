@@ -11,6 +11,8 @@ public class BossFrogBehaviour : MonoBehaviour {
     public bool isKing = false;
     private bool nextScreen = false;
     public float timer, maxTime;
+    private int maxSmallFrogs = 6;
+    private int smallFrogCounter = 0;
 
     public GameObject deathEventTrigger;
 
@@ -53,11 +55,13 @@ public class BossFrogBehaviour : MonoBehaviour {
 
             spawnCounter += 1;
 
-            if (spawnCounter > 150) {
+            if (smallFrogCounter < maxSmallFrogs && spawnCounter > 150) {
                 GameObject frog = GameObject.Instantiate((GameObject)Resources.Load("smallFrog"));
                 Vector2 offset = new Vector2(-2F, 3F);
                 frog.transform.position = new Vector3(gameObject.transform.position.x + offset.x, gameObject.transform.position.y + offset.y, 0F);
                 spawnCounter = 0;
+                smallFrogCounter++;
+
             }
         }
     }
