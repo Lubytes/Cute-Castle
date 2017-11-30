@@ -81,11 +81,6 @@ public class PlayerController : NetworkBehaviour {
             GoToSpawn();
         }
 
-        if (transform.position.x > 1)
-        {
-            transform.position = new Vector3(-24, -8);
-        }
-
         oldYPos = transform.position.y;
         float dir = Input.GetAxis("Horizontal");
         if(dir != 0)
