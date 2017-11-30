@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 4560348276664470}
   - component: {fileID: 114070479178393806}
   - component: {fileID: 114264148915610092}
+  - component: {fileID: 114110035170605692}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -207,6 +208,7 @@ GameObject:
   - component: {fileID: 224925473845904032}
   - component: {fileID: 222537542212864602}
   - component: {fileID: 114675716726539518}
+  - component: {fileID: 114678287131334118}
   m_Layer: 5
   m_Name: Room Name
   m_TagString: Untagged
@@ -555,7 +557,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1013073313994428}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -289.6734, y: 333.23798, z: -10}
+  m_LocalPosition: {x: -34.609955, y: -9.174278, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4275984823768366}
@@ -957,6 +959,17 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 5
+--- !u!114 &114110035170605692
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1131831589505922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1327945023, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114235867741177384
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1380,7 +1393,18 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Room Name: '
+  m_Text: 'Room name: donkey beholder barkskin giant'
+--- !u!114 &114678287131334118
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1424301878558378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4059d813231d04ba29704ba1f4cdb17c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114681276484158556
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1963,7 +1987,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 1cba8ac0a70a7fb4c8bb16dcc3d89032, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b5eebdd3373a1c64086ac4e24beb0fd9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2007,7 +2031,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 1cba8ac0a70a7fb4c8bb16dcc3d89032, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b5eebdd3373a1c64086ac4e24beb0fd9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
