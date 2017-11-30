@@ -26,7 +26,7 @@ public class ItemBox : NetworkBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-            CmdSpawnPowerUp();
+            SpawnPowerUp();
             gameObject.GetComponent<SpriteRenderer>().sprite = emptyBlock;
             trigger.enabled = false;
         }
@@ -40,8 +40,7 @@ public class ItemBox : NetworkBehaviour {
         }
     }
 
-    [Command]
-    void CmdSpawnPowerUp()
+    void SpawnPowerUp()
     {
         GameObject spawnedPowerUp = Instantiate(storedPowerUp, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + spawnOffset, gameObject.transform.position.z), Quaternion.identity);
         spawnedPowerUp.GetComponent<CircleCollider2D>().enabled = false;
