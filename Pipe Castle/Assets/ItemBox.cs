@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class ItemBox : MonoBehaviour {
+public class ItemBox : NetworkBehaviour {
 
     public GameObject storedPowerUp;
     public Sprite emptyBlock;
@@ -25,7 +26,7 @@ public class ItemBox : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-            SpawnPowerUp();
+            CmdSpawnPowerUp();
             gameObject.GetComponent<SpriteRenderer>().sprite = emptyBlock;
             trigger.enabled = false;
         }
@@ -39,7 +40,8 @@ public class ItemBox : MonoBehaviour {
         }
     }
 
-    void SpawnPowerUp()
+    [Command]
+    void CmdSpawnPowerUp()
     {
         GameObject spawnedPowerUp = Instantiate(storedPowerUp, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + spawnOffset, gameObject.transform.position.z), Quaternion.identity);
         spawnedPowerUp.GetComponent<CircleCollider2D>().enabled = false;
