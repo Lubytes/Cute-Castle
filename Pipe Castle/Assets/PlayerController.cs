@@ -31,9 +31,10 @@ public class PlayerController : NetworkBehaviour {
     [SyncVar(hook = "KeyChanged")]
     private string inHandsColour = "";
 
-    public SpriteRenderer blueKeySprite;
-    public SpriteRenderer redKeySprite;
-    public SpriteRenderer greenKeySprite;
+    public Sprite blueKeySprite;
+    public Sprite redKeySprite;
+    public Sprite greenKeySprite;
+    public Sprite yellowKeySprite;
 
     private Rigidbody2D rb;
     public float fallMultiplier = 2.5f;
@@ -137,18 +138,22 @@ public class PlayerController : NetworkBehaviour {
     
     public void KeyChanged()
     {
-        if (inHandsColour.Equals("red"))
+        if (inHandsColour.Equals("Red"))
         {
-            heldRenderer = redKeySprite;
-        } else if (inHandsColour.Equals("blue"))
+            heldRenderer.sprite = redKeySprite;
+        } else if (inHandsColour.Equals("Blue"))
         {
-            heldRenderer = blueKeySprite;
-        } else if (inHandsColour.Equals("green"))
+            heldRenderer.sprite = blueKeySprite;
+        } else if (inHandsColour.Equals("Green"))
         {
-            heldRenderer = greenKeySprite;
-        } else
+            heldRenderer.sprite = greenKeySprite;
+        } else if (inHandsColour.Equals("Yellow"))
         {
-            heldRenderer = null;
+            heldRenderer.sprite = yellowKeySprite;
+        }
+        else
+        {
+            heldRenderer.sprite = null;
         }
     }
 
@@ -250,28 +255,24 @@ public class PlayerController : NetworkBehaviour {
         {
             if(inHandsColour.Equals(""))
             {
-                PickUpObject(powerUp);
                 inHandsColour = "Yellow";
             }
         } else if (powerUp.name == "Blue Key" || powerUp.name == "Blue Key(Clone)")
         {
             if (inHandsColour.Equals(""))
             {
-                PickUpObject(powerUp);
                 inHandsColour = "Blue";
             }
         } else if (powerUp.name == "Red Key" || powerUp.name == "Red Key(Clone)")
         {
             if (inHandsColour.Equals(""))
             {
-                PickUpObject(powerUp);
                 inHandsColour = "Red";
             }
         } else if (powerUp.name == "Green Key" || powerUp.name == "Green Key(Clone)")
         {
             if (inHandsColour.Equals(""))
             {
-                PickUpObject(powerUp);
                 inHandsColour = "Green";
             }
         }
@@ -327,8 +328,6 @@ public class PlayerController : NetworkBehaviour {
     // Has the character pick up the object and hold it
     void PickUpObject(GameObject heldObject)
     {
-        heldRenderer.sprite = heldObject.GetComponent<SpriteRenderer>().sprite;
-        Destroy(heldObject);
     }
 
     public void DropObject()
