@@ -255,7 +255,6 @@ public class PlayerController : NetworkBehaviour {
             if(inHandsColour.Equals(""))
             {
 				Destroy (powerUp);
-		
                 inHandsColour = "Yellow";
             }
         } else if (powerUp.name == "Blue Key" || powerUp.name == "Blue Key(Clone)")
@@ -263,7 +262,6 @@ public class PlayerController : NetworkBehaviour {
             if (inHandsColour.Equals(""))
             {
 				Destroy (powerUp);
-
                 inHandsColour = "Blue";
             }
         } else if (powerUp.name == "Red Key" || powerUp.name == "Red Key(Clone)")
@@ -271,7 +269,6 @@ public class PlayerController : NetworkBehaviour {
             if (inHandsColour.Equals(""))
             {
 				Destroy (powerUp);
-
                 inHandsColour = "Red";
             }
         } else if (powerUp.name == "Green Key" || powerUp.name == "Green Key(Clone)")
@@ -279,7 +276,6 @@ public class PlayerController : NetworkBehaviour {
             if (inHandsColour.Equals(""))
             {
 				Destroy (powerUp);
-
                 inHandsColour = "Green";
             }
         }

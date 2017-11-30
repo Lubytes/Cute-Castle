@@ -8,6 +8,10 @@ public class MainScreenController : MonoBehaviour {
 
 	public Transform canvas;
 
+	public void LoadByName(string sceneName){
+		SceneManager.LoadScene (sceneName);
+	}
+
 	public void NewGame(){
 		NetworkManager.singleton.StartHost ();
 	}
