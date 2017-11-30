@@ -47,7 +47,8 @@ public class PlayerController : NetworkBehaviour {
 
     // Use this for initialization
     void Start () {
-		gameObject.SetActive (true);
+
+        gameObject.SetActive (true);
 		DontDestroyOnLoad (gameObject);
         SetupSpawning();
         RefreshBindings();
