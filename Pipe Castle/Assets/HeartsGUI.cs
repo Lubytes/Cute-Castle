@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class HeartsGUI : MonoBehaviour {
+public class HeartsGUI : NetworkBehaviour {
 
     public Sprite heartEmpty, heartFull;
     public GameObject[] hearts;
 
+    [SyncVar]
     public int numHearts;
 
 	// Use this for initialization
