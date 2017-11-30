@@ -28,7 +28,12 @@ public class PlayerController : NetworkBehaviour {
 	public GameObject player;
     public SpriteRenderer heldRenderer;
 
+    [SyncVar(hook = "KeyChanged")]
     private string inHandsColour = "";
+
+    public SpriteRenderer blueKeySprite;
+    public SpriteRenderer redKeySprite;
+    public SpriteRenderer greenKeySprite;
 
     private Rigidbody2D rb;
     public float fallMultiplier = 2.5f;
@@ -76,7 +81,7 @@ public class PlayerController : NetworkBehaviour {
         timeSinceLevel += Time.deltaTime;
 
         // The hack to end all hacks
-       if (timeSinceLevel < 0.1)
+       if (timeSinceLevel < 0.5)
         {
             GoToSpawn();
         }
@@ -127,6 +132,23 @@ public class PlayerController : NetworkBehaviour {
         else if(!onPlat)
         {
             grounded = false;
+        }
+    }
+    
+    public void KeyChanged()
+    {
+        if (inHandsColour.Equals("red"))
+        {
+            heldRenderer = redKeySprite;
+        } else if (inHandsColour.Equals("blue"))
+        {
+            heldRenderer = blueKeySprite;
+        } else if (inHandsColour.Equals("green"))
+        {
+            heldRenderer = greenKeySprite;
+        } else
+        {
+            heldRenderer = null;
         }
     }
 
@@ -220,6 +242,10 @@ public class PlayerController : NetworkBehaviour {
     // Handles Powerups
     private void PowerUp(GameObject powerUp)
     {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
         if(powerUp.name == "Yellow Key" || powerUp.name == "Yellow Key(Clone)")
         {
             if(inHandsColour.Equals(""))
