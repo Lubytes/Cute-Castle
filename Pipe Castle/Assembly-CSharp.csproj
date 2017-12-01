@@ -59,6 +59,7 @@
      <Compile Include="Assets\CoinCount.cs" />
      <Compile Include="Assets\EndlevelDoor.cs" />
      <Compile Include="Assets\FlyBehaviour.cs" />
+     <Compile Include="Assets\GameShutdownScript.cs" />
      <Compile Include="Assets\HeartsGUI.cs" />
      <Compile Include="Assets\ItemBox.cs" />
      <Compile Include="Assets\JoinGame.cs" />
