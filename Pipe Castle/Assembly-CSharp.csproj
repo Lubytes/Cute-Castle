@@ -70,6 +70,7 @@
      <Compile Include="Assets\MonsterAnimator.cs" />
      <Compile Include="Assets\MonsterDamageLogic.cs" />
      <Compile Include="Assets\MonsterSight.cs" />
+     <Compile Include="Assets\MusicController.cs" />
      <Compile Include="Assets\PauseGame.cs" />
      <Compile Include="Assets\PlayerAnimations.cs" />
      <Compile Include="Assets\PlayerController.cs" />
