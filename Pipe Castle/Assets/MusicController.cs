@@ -9,25 +9,26 @@ public class MusicController : MonoBehaviour {
 	public Toggle musicToggle;
 	public Toggle sfxToggle;
 
-	public void loadMusic(){
+    public void Start()
+    {
+        musicToggle.isOn = PlayerPrefs.GetInt("music", 1) == 1;
+        sfxToggle.isOn = PlayerPrefs.GetInt("sfx", 1) == 1;
+    }
+
+    public void loadMusic(){
 	
 		if (musicToggle.isOn) {
-			//music on
-			Debug.Log ("yes");
+            PlayerPrefs.SetInt("music", 1);
 		} else if (!musicToggle.isOn) {
-			//music off
-			Debug.Log ("no");
+            PlayerPrefs.SetInt("music", 0);
 		}
 	}
 
 	public void loadSfx(){
-
 		if (sfxToggle.isOn) {
-			// sound effects on
-			Debug.Log ("yes");
+            PlayerPrefs.SetInt("sfx", 1);
 		} else if (!sfxToggle.isOn) {
-			// sound effects off
-			Debug.Log ("no");
+            PlayerPrefs.SetInt("sfx", 0);
 		}
 	}
 
