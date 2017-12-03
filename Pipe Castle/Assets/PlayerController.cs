@@ -28,40 +28,89 @@ public class PlayerController : NetworkBehaviour {
 	public GameObject player;
     public SpriteRenderer heldRenderer;
 
-    private string inHandsColour = "";
+    public GameObject musicManager;
+    public MusicMixer mixer;
+
+    [SyncVar(hook = "KeyChanged")]
+    public string inHandsColour = "";
+
+    public Sprite blueKeySprite;
+    public Sprite redKeySprite;
+    public Sprite greenKeySprite;
+    public Sprite yellowKeySprite;
 
     private Rigidbody2D rb;
     public float fallMultiplier = 2.5f;
     public float lowJumpMultiplier = 2f;
     private float oldYPos;
 
-    private bool immortal;
-    private float timer, maxTime = 0.5f;
+	private bool immortal;
+	private float timer, maxTime = 0.5f;
+    private float timeSinceLevel = 0;
 
     // Use this for initialization
     void Start () {
-		gameObject.SetActive (true);
-        coinCount = GameObject.FindGameObjectWithTag("CoinDisplay").GetComponent<CoinCount>();
-        hearts = GameObject.FindGameObjectWithTag("HeartDisplay").GetComponent<HeartsGUI>();
-        rb = GetComponent<Rigidbody2D>();
-        oldYPos = transform.position.y;
-		DontDestroyOnLoad (this);
-		SetupSpawning ();
+        gameObject.SetActive (true);
+		DontDestroyOnLoad (gameObject);
+        SetupSpawning();
+        RefreshBindings();
 
         if (isLocalPlayer) {
-            localPlayer = true;
 			GetComponent<SpriteRenderer> ().sprite = localPlayerSprite;
-			Camera.main.GetComponent<CameraAI> ().SetTarget (gameObject);
-			GameObject.Find("UserInput").GetComponent<UserInput> ().SetPlayer(gameObject);
             gameObject.GetComponent<Collider2D>().enabled = true;
 		} else {
 			GetComponent<SpriteRenderer> ().sprite = remotePlayerSprite;
-            localPlayer = false;
 		}
     }
 
-    void Update()
+    void RefreshBindings()
     {
+		coinCount = GameObject.FindGameObjectWithTag("CoinDisplay").GetComponent<CoinCount>();
+		hearts = GameObject.FindGameObjectWithTag("HeartDisplay").GetComponent<HeartsGUI>();
+		rb = GetComponent<Rigidbody2D>();
+		oldYPos = transform.position.y;
+        musicManager = GameObject.FindGameObjectWithTag("MusicManager");
+        mixer = musicManager.GetComponent<MusicMixer>();
+        if (isLocalPlayer)
+        {
+			Camera.main.GetComponent<CameraAI> ().SetTarget (gameObject);
+			GameObject.Find("UserInput").GetComponent<UserInput> ().SetPlayer(gameObject);
+        }
+    }
+
+	void Update()
+	{
+		if (transform.position.y - oldYPos <= 0.0001f && transform.position.y - oldYPos >= -0.0001f)
+		{
+			grounded = true;
+		}
+		else if(!onPlat)
+		{
+			grounded = false;
+		}
+	}
+
+    // Update is called once per frame
+    void FixedUpdate () {
+		if (!isLocalPlayer)
+		{
+			return;
+		}
+        timeSinceLevel += Time.deltaTime;
+
+        // The hack to end all hacks
+       if (timeSinceLevel < 0.5)
+        {
+            GoToSpawn();
+        }
+
+        oldYPos = transform.position.y;
+        float dir = Input.GetAxis("Horizontal");
+        if(dir != 0)
+        {
+            rb.velocity = new Vector2(dir * moveSpeed, rb.velocity.y);
+        }
+
         if (immortal)
         {
             timer += Time.deltaTime;
@@ -84,11 +133,6 @@ public class PlayerController : NetworkBehaviour {
             }
         }
 
-        if (!isLocalPlayer)
-        {
-            return;
-        }
-
         if (Input.GetKeyDown(KeyCode.Space))
         {
             PlayerJump();
@@ -99,28 +143,26 @@ public class PlayerController : NetworkBehaviour {
             rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
         }
 
-        if (transform.position.y - oldYPos <= 0.0001f && transform.position.y - oldYPos >= -0.0001f)
-        {
-            grounded = true;
-        }
-        else if(!onPlat)
-        {
-            grounded = false;
-        }
     }
-
-    // Update is called once per frame
-    void FixedUpdate () {
-		if (!isLocalPlayer)
-		{
-			return;
-		}
-
-        oldYPos = transform.position.y;
-        float dir = Input.GetAxis("Horizontal");
-        if(dir != 0)
+    
+	public void KeyChanged(string newColour)
+    {
+        if (newColour.Equals("Red"))
         {
-            rb.velocity = new Vector2(dir * moveSpeed, rb.velocity.y);
+            heldRenderer.sprite = redKeySprite;
+        } else if (newColour.Equals("Blue"))
+        {
+            heldRenderer.sprite = blueKeySprite;
+        } else if (newColour.Equals("Green"))
+        {
+            heldRenderer.sprite = greenKeySprite;
+        } else if (newColour.Equals("Yellow"))
+        {
+            heldRenderer.sprite = yellowKeySprite;
+        }
+        else
+        {
+            heldRenderer.sprite = null;
         }
     }
 
@@ -144,6 +186,7 @@ public class PlayerController : NetworkBehaviour {
     {
         if (grounded)
         {
+            mixer.PlayJump();
             rb.velocity = new Vector2(rb.velocity.x, 1f * jumpPower);
         }
     }
@@ -155,19 +198,23 @@ public class PlayerController : NetworkBehaviour {
         {
             Recoil(other);
             Hurt();
-        } else if (other.gameObject.tag == "Power-Up")
+        }
+        else if (other.gameObject.tag == "Power-Up")
         {
             PowerUp(other.gameObject);
-        } else if (other.gameObject.tag == "Health")
+        }
+        else if (other.gameObject.tag == "Health")
         {
+            mixer.PlayHeart();
             hearts.IncreaseHeart();
             Destroy(other.gameObject);
-        } else if (other.gameObject.tag == "Coin")
+        }
+        else if (other.gameObject.tag == "Coin")
         {
+            mixer.PlayCoin();
             coinCount.IncrementCoin();
             Destroy(other.gameObject);
         }
-
     }
 
     void OnCollisionStay2D(Collision2D other)
@@ -191,6 +238,7 @@ public class PlayerController : NetworkBehaviour {
     {
         if(!immortal)
         {
+            mixer.PlayHurt();
             immortal = true;
             Handheld.Vibrate();
             hearts.DecreaseHeart();
@@ -210,51 +258,52 @@ public class PlayerController : NetworkBehaviour {
     // Handles Powerups
     private void PowerUp(GameObject powerUp)
     {
+        if (!inHandsColour.Equals(""))
+        {
+            return;
+        }
+
+        mixer.PlayPowerUp();
+
         if(powerUp.name == "Yellow Key" || powerUp.name == "Yellow Key(Clone)")
         {
-            if(inHandsColour.Equals(""))
-            {
-                PickUpObject(powerUp);
-                inHandsColour = "Yellow";
-            }
+            Destroy (powerUp);
+            inHandsColour = "Yellow";
         } else if (powerUp.name == "Blue Key" || powerUp.name == "Blue Key(Clone)")
         {
-            if (inHandsColour.Equals(""))
-            {
-                PickUpObject(powerUp);
-                inHandsColour = "Blue";
-            }
+            Destroy (powerUp);
+            inHandsColour = "Blue";
         } else if (powerUp.name == "Red Key" || powerUp.name == "Red Key(Clone)")
         {
-            if (inHandsColour.Equals(""))
-            {
-                PickUpObject(powerUp);
-                inHandsColour = "Red";
-            }
+            Destroy (powerUp);
+            inHandsColour = "Red";
         } else if (powerUp.name == "Green Key" || powerUp.name == "Green Key(Clone)")
         {
-            if (inHandsColour.Equals(""))
-            {
-                PickUpObject(powerUp);
-                inHandsColour = "Green";
-            }
+            Destroy (powerUp);
+            inHandsColour = "Green";
         }
     }
 
 	void SetupSpawning()
 	{
-		SceneManager.sceneLoaded += SceneLoaded;
+		SceneManager.activeSceneChanged += SceneChanged;
 	}
 
-	void SceneLoaded(Scene _scene, LoadSceneMode _mode)
+	void SceneChanged(Scene _from, Scene _to)
 	{
-		GoToSpawn ();
-		Start ();
+        timeSinceLevel = 0;
+        if (isLocalPlayer)
+        {
+            GoToSpawn ();
+        }
+        gameObject.SetActive(true);
+        RefreshBindings();
 	}
 
 	void GoToSpawn()
 	{
-		gameObject.transform.position = GameObject.Find ("SpawnPosition").transform.position;
+        GameObject spawn = GameObject.FindGameObjectWithTag("PlayerSpawn");
+        gameObject.transform.position = spawn.transform.position;
 	}
 
     // Makes the player recoil
@@ -285,14 +334,20 @@ public class PlayerController : NetworkBehaviour {
     // Has the character pick up the object and hold it
     void PickUpObject(GameObject heldObject)
     {
-        heldRenderer.sprite = heldObject.GetComponent<SpriteRenderer>().sprite;
-        Destroy(heldObject);
     }
-    public void DropObject()
+
+	public void DropObject(GameObject box)
     {
         heldRenderer.sprite = null;
         inHandsColour = "";
+		CmdOpenBox (box.name);
     }
+
+	[Command]
+	void CmdOpenBox(string name)
+	{
+		Destroy (GameObject.Find (name));
+	}
 
     public string GetInHandsColour()
     {

@@ -5,6 +5,12 @@ using UnityEngine;
 public class LockBox : MonoBehaviour {
 
     public string colour;
+    public MusicMixer mixer;
+
+    void Start()
+    {
+        mixer = GameObject.FindGameObjectWithTag("MusicManager").GetComponent<MusicMixer>();
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -13,8 +19,8 @@ public class LockBox : MonoBehaviour {
             PlayerController playerScript = other.GetComponent<PlayerController>();
             if (playerScript.GetInHandsColour().Equals(colour))
             {
-                playerScript.DropObject();
-                Destroy(gameObject);
+                mixer.PlayReveal();
+                playerScript.DropObject(gameObject);
             }
         }
     }

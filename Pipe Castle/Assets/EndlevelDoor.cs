@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
 
-public class EndlevelDoor : MonoBehaviour {
+public class EndlevelDoor : NetworkBehaviour {
 
     public string destination;
 
@@ -29,16 +29,13 @@ public class EndlevelDoor : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-			other.gameObject.SetActive (false);
-            NextLevelCheck();
+            CmdNextLevel();
         }
     }
 
-    void NextLevelCheck()
+    [Command]
+    void CmdNextLevel()
     {
-        if(CountPlayers() <= 0)
-        {
 			NetworkManager.singleton.ServerChangeScene (destination);
-        }
     }
 }

@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Networking;
 
 public class MainScreenController : MonoBehaviour {
 
 	public Transform canvas;
 
 	public void LoadByName(string sceneName){
-	
 		SceneManager.LoadScene (sceneName);
-		Debug.Log ("Go to scene" + sceneName);
-		
 	}
+
+	public void NewGame(){
+		NetworkManager.singleton.StartHost ();
+        PlayerPrefs.SetInt("Coins", 0);
+    }
 
 	public void QuitGame(){
 	

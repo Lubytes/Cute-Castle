@@ -9,7 +9,7 @@ public class TriggerScript : MonoBehaviour {
     public Sprite onSprite, offSprite;
     private bool isOn;
 
-	// Use this for initialization
+
 	void Start () {
         UpdateSprite();
 	}

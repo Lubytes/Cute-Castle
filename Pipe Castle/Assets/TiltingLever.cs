@@ -37,7 +37,7 @@ public class TiltingLever : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-            if(other.GetComponent<PlayerController>().localPlayer)
+            if(other.GetComponent<PlayerController>().isLocalPlayer)
             {
                 claimed = true;
                 ownerDisplay.sprite = player1;
@@ -52,7 +52,7 @@ public class TiltingLever : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-            if (other.GetComponent<PlayerController>().localPlayer)
+            if (other.GetComponent<PlayerController>().isLocalPlayer)
             {
                 ownerDisplay.sprite = null;
                 claimed = false;
