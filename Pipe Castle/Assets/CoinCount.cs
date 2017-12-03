@@ -14,8 +14,8 @@ public class CoinCount : NetworkBehaviour {
 	void Start () {
         LoadCoins();
 		UpdateCoins ();
-
     }
+
 	public void UpdateCoins(){
 
         int numCoinsRecorded = numCoins;
@@ -35,11 +35,11 @@ public class CoinCount : NetworkBehaviour {
 		}	
 
     }
+
 	public void IncrementCoin(){
 		numCoins++;
 		UpdateCoins ();
         SaveCoins();
-		
     }
 
     void SaveCoins()

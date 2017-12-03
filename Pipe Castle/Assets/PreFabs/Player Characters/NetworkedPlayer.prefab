@@ -340,6 +340,10 @@ MonoBehaviour:
   remotePlayerSprite: {fileID: 21300000, guid: 8ee801b887213544e95db36d9bb3ca50, type: 3}
   player: {fileID: 0}
   heldRenderer: {fileID: 212543162654933752}
+  musicManager: {fileID: 1415614818645890, guid: e1a5185f672d0f54490c9b4edfbcc5be,
+    type: 2}
+  mixer: {fileID: 0}
+  inHandsColour: 
   blueKeySprite: {fileID: 21300000, guid: 4a92a5800ef28d44094781bf93ecfbdc, type: 3}
   redKeySprite: {fileID: 21300000, guid: eaa4e1835551a7e49afb10a42cd77573, type: 3}
   greenKeySprite: {fileID: 21300000, guid: 0850f4c62b02ef54e85e7d333064a4ad, type: 3}

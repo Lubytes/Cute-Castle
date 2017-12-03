@@ -28,6 +28,9 @@ public class PlayerController : NetworkBehaviour {
 	public GameObject player;
     public SpriteRenderer heldRenderer;
 
+    public GameObject musicManager;
+    public MusicMixer mixer;
+
     [SyncVar(hook = "KeyChanged")]
     public string inHandsColour = "";
 
@@ -47,7 +50,6 @@ public class PlayerController : NetworkBehaviour {
 
     // Use this for initialization
     void Start () {
-
         gameObject.SetActive (true);
 		DontDestroyOnLoad (gameObject);
         SetupSpawning();
@@ -67,6 +69,8 @@ public class PlayerController : NetworkBehaviour {
 		hearts = GameObject.FindGameObjectWithTag("HeartDisplay").GetComponent<HeartsGUI>();
 		rb = GetComponent<Rigidbody2D>();
 		oldYPos = transform.position.y;
+        musicManager = GameObject.FindGameObjectWithTag("MusicManager");
+        mixer = musicManager.GetComponent<MusicMixer>();
         if (isLocalPlayer)
         {
 			Camera.main.GetComponent<CameraAI> ().SetTarget (gameObject);
@@ -182,6 +186,7 @@ public class PlayerController : NetworkBehaviour {
     {
         if (grounded)
         {
+            mixer.PlayJump();
             rb.velocity = new Vector2(rb.velocity.x, 1f * jumpPower);
         }
     }
@@ -200,15 +205,16 @@ public class PlayerController : NetworkBehaviour {
         }
         else if (other.gameObject.tag == "Health")
         {
+            mixer.PlayHeart();
             hearts.IncreaseHeart();
             Destroy(other.gameObject);
         }
         else if (other.gameObject.tag == "Coin")
         {
+            mixer.PlayCoin();
             coinCount.IncrementCoin();
             Destroy(other.gameObject);
         }
-
     }
 
     void OnCollisionStay2D(Collision2D other)
@@ -232,6 +238,7 @@ public class PlayerController : NetworkBehaviour {
     {
         if(!immortal)
         {
+            mixer.PlayHurt();
             immortal = true;
             Handheld.Vibrate();
             hearts.DecreaseHeart();
@@ -251,34 +258,29 @@ public class PlayerController : NetworkBehaviour {
     // Handles Powerups
     private void PowerUp(GameObject powerUp)
     {
+        if (!inHandsColour.Equals(""))
+        {
+            return;
+        }
+
+        mixer.PlayPowerUp();
+
         if(powerUp.name == "Yellow Key" || powerUp.name == "Yellow Key(Clone)")
         {
-            if(inHandsColour.Equals(""))
-            {
-				Destroy (powerUp);
-                inHandsColour = "Yellow";
-            }
+            Destroy (powerUp);
+            inHandsColour = "Yellow";
         } else if (powerUp.name == "Blue Key" || powerUp.name == "Blue Key(Clone)")
         {
-            if (inHandsColour.Equals(""))
-            {
-				Destroy (powerUp);
-                inHandsColour = "Blue";
-            }
+            Destroy (powerUp);
+            inHandsColour = "Blue";
         } else if (powerUp.name == "Red Key" || powerUp.name == "Red Key(Clone)")
         {
-            if (inHandsColour.Equals(""))
-            {
-				Destroy (powerUp);
-                inHandsColour = "Red";
-            }
+            Destroy (powerUp);
+            inHandsColour = "Red";
         } else if (powerUp.name == "Green Key" || powerUp.name == "Green Key(Clone)")
         {
-            if (inHandsColour.Equals(""))
-            {
-				Destroy (powerUp);
-                inHandsColour = "Green";
-            }
+            Destroy (powerUp);
+            inHandsColour = "Green";
         }
     }
 

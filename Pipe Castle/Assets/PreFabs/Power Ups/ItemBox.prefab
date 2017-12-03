@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 61663827283523850}
   m_Layer: 0
   m_Name: ItemBox
-  m_TagString: Untagged
+  m_TagString: ItemBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,11 +104,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b67eb39bd5359e4f88a1e8b11d2dd99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isHealth: 0
   storedPowerUp: {fileID: 0}
-  starDust: {fileID: 0}
   emptyBlock: {fileID: 21300000, guid: 934a77d2808fd1444a4cc0567dd63e63, type: 3}
   trigger: {fileID: 61663827283523850}
+  mixer: {fileID: 0}
 --- !u!212 &212146515863215646
 SpriteRenderer:
   m_ObjectHideFlags: 1

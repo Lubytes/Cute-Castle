@@ -8,13 +8,14 @@ public class ItemBox : NetworkBehaviour {
     public GameObject storedPowerUp;
     public Sprite emptyBlock;
     public BoxCollider2D trigger;
+    public MusicMixer mixer;
 
 
     private float spawnOffset = 0.35f;
 
 	// Use this for initialization
 	void Start () {
-		
+        mixer = GameObject.FindGameObjectWithTag("MusicManager").GetComponent<MusicMixer>();
 	}
 	
 	// Update is called once per frame
@@ -26,6 +27,7 @@ public class ItemBox : NetworkBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
+            mixer.PlayHit();
             SpawnPowerUp();
             gameObject.GetComponent<SpriteRenderer>().sprite = emptyBlock;
             trigger.enabled = false;

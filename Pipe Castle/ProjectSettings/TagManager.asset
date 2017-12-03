@@ -14,6 +14,8 @@ TagManager:
   - Coin
   - Platform
   - PlayerSpawn
+  - MusicManager
+  - ItemBox
   layers:
   - Default
   - TransparentFX
